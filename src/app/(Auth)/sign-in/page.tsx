@@ -2,20 +2,18 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Fa42Group } from 'react-icons/fa6';
-import { FaRegUserCircle } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 
 const SignInPage: React.FC = () => {
 	return (
-		<div className='flex min-h-screen bg-white dark:bg-gray-800 w-full'>
+		<div className='flex xl:pt-24  bg-white dark:bg-gray-800 w-full '>
 			{/* Left section with photo */}
 			<div className='hidden md:flex w-1/2  flex-col gap-10 items-center justify-center'>
 				<div className='flex justify-center items-center h-[300px] w-[300px] rounded-full  bg-gradient-to-t from-yellow-800 to-yellow-400 p-[1px]'>
 					<div className='flex justify-center items-center h-full w-full rounded-full bg-white dark:bg-darkprimary'>
 						<Image
-							src='/image/poultry.png'
+							src='/images/animal.png'
 							alt='Poultry Farm'
 							width={200}
 							height={200}

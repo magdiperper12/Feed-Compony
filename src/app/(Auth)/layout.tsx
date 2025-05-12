@@ -1,4 +1,4 @@
-'use client'; // if using App Router
+'use client';
 
 import { usePathname } from 'next/navigation';
 import SignUpPage from './sign-up/page';
