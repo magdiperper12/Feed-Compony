@@ -6,6 +6,7 @@ export default function ThemeToggle() {
 	return (
 		<button
 			onClick={toggleTheme}
+			aria-label='إعدادات'
 			className='p-2 text-sm border rounded-lg dark:bg-gray-700 dark:text-white'>
 			{theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
 		</button>

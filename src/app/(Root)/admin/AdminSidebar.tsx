@@ -24,6 +24,7 @@ export default function AdminSidebar() {
 			{/* Button to toggle sidebar visibility on mobile */}
 			<button
 				onClick={toggleSidebar}
+				aria-label='إعدادات'
 				className='md:hidden absolute top-20 left-8 bg-blue-600 text-white p-2 rounded-md z-50'>
 				{isSidebarVisible ? 'إغلاق القائمة' : 'فتح القائمة'}
 			</button>

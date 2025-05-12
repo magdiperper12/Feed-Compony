@@ -99,9 +99,9 @@ const AboutPoultryFeedPage = () => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.6 }}>
-					<h2 className='text-3xl font-semibold text-gray-800 mb-6'>
+					<button className='text-3xl font-semibold text-gray-800 mb-6'>
 						تواصل معنا
-					</h2>
+					</button>
 					<p className='text-lg text-gray-700 mb-4'>
 						إذا كنت مهتمًا بمزيد من المعلومات حول أعلاف الدواجن أو ترغب في شراء
 						منتجنا، لا تتردد في الاتصال بنا.

@@ -118,6 +118,7 @@ const AImessage: React.FC = () => {
 			<button
 				key={index}
 				onClick={() => handleQuestionClick(item.question)}
+				aria-label='إعدادات'
 				className='border-2 border-blue-500 p-2 w-3/4 hover:bg-blue-200 rounded-lg hover:text-white transition-all duration-150 hover:border-blue-500'>
 				{item.question}
 			</button>
@@ -133,8 +134,8 @@ const AImessage: React.FC = () => {
 					onClick={handleToggle}>
 					<Image
 						src='/images/logo-removebg.png'
-						width={30}
-						height={30}
+						width={64}
+						height={38}
 						alt='شركة كودا - تطوير البرمجيات والذكاء الاصطناعي'
 						className='h-10 w-10 md:h-12 md:w-12'
 					/>
@@ -153,8 +154,8 @@ const AImessage: React.FC = () => {
 					<div className='flex items-center'>
 						<Image
 							src='/images/logo-removebg.png'
-							width={30}
-							height={30}
+							width={64}
+							height={38}
 							alt='شركة كودا - تطوير البرمجيات والذكاء الاصطناعي'
 							className='h-8 w-8 md:h-16 md:w-12 mr-1'
 						/>
@@ -164,6 +165,7 @@ const AImessage: React.FC = () => {
 					</div>
 					<button
 						onClick={handleToggle}
+						aria-label='إعدادات'
 						className='hover:text-blue-600 text-blue-100'>
 						<IoIosArrowDown className='h-8 w-8 md:h-10 transition-transform duration-300 ease-in-out hover:scale-110' />
 					</button>
@@ -330,6 +332,7 @@ const AImessage: React.FC = () => {
 					/>
 					<button
 						onClick={handleFileClick}
+						aria-label='إعدادات'
 						className='flex items-center'>
 						<MdAttachFile className='w-7 h-7 text-blue-600 hover:scale-110 transition-transform duration-300 ease-in-out' />
 					</button>
@@ -351,6 +354,7 @@ const AImessage: React.FC = () => {
 							/>
 							<button
 								onClick={toggleEmojiPicker}
+								aria-label='إعدادات'
 								className='flex items-center'>
 								<MdInsertEmoticon className='w-7 h-7 text-blue-600 hover:scale-110 transition-transform duration-300 ease-in-out' />
 							</button>
@@ -358,6 +362,7 @@ const AImessage: React.FC = () => {
 					</div>
 					<button
 						onClick={handleSendMessage}
+						aria-label='إعدادات'
 						className='bg-blue-500 text-white hover:text-blue-600 transition-all duration-300 ease-in-out p-2 rounded-full'>
 						<MdSend className='w-6 h-6' />
 					</button>

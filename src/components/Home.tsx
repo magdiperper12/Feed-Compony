@@ -26,7 +26,7 @@ const HomePage = () => {
 						transition={{ delay: 0.3 }}>
 						نحن نقدم حلولًا مبتكرة في صناعة الأعلاف لتلبية احتياجات عملائنا.
 					</motion.p>
-					<motion.div
+					<motion.button
 						className='inline-block bg-white text-blue-500 px-6 py-2 rounded-lg'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -36,10 +36,8 @@ const HomePage = () => {
 							className='text-lg font-semibold'>
 							تواصل معنا
 						</Link>
-					</motion.div>
+					</motion.button>
 				</section>
-
-				{/* About Section */}
 				<section
 					id='about'
 					className='py-20 bg-white text-center'>
