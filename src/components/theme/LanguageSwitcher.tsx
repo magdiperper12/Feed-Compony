@@ -5,7 +5,6 @@ import { HiGlobeAlt } from 'react-icons/hi';
 
 export default function LanguageSwitcher() {
 	const { i18n } = useTranslation();
-	const { t } = useTranslation();
 
 	const changeLanguage = (lng: string) => {
 		i18n.changeLanguage(lng);
@@ -23,7 +22,6 @@ export default function LanguageSwitcher() {
 				aria-label='إعدادات'
 				className='flex items-center justify-center gap-1 p-1 transition-transform duration-300 border-2 border-gray-200 rounded-full'>
 				<HiGlobeAlt className='text-3xl text-darksecoundry dark:text-darkthird' />
-				{/* <span className="text-lg">{t('language')}</span> */}
 			</button>
 
 			{isOpen && (
