@@ -113,16 +113,18 @@ const HomePage = () => {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6, delay: index * 0.2 }}>
-						<motion.img
-							src={item.image}
-							alt={item.title}
-							initial={{ opacity: 0, y: 60 }}
-							width={80}
-							height={30}
+						<motion.div
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: index * 0.12 }}
-							className='w-full md:w-1/2 h-auto object-cover'
-						/>
+							initial={{ opacity: 0, y: 60 }}>
+							<Image
+								src={item.image}
+								alt={item.title}
+								width={80}
+								height={30}
+								className='w-full md:w-1/2 h-auto object-cover'
+							/>
+						</motion.div>
 						<div className='w-full md:w-1/2 text-gray-700 dark:text-gray-200'>
 							<h3 className='text-3xl font-bold text-PrimaryTextColors dark:text-darkPrimaryTextColors mb-4'>
 								{item.title}

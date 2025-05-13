@@ -26,7 +26,7 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} antialiased custom-scroll bg-white dark:bg-black`}>
 				<Header />
-				<div className='pt-4 '>{children}</div>
+				<div className=' '>{children}</div>
 				<Footer />
 			</body>
 		</html>

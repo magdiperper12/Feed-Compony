@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const images = [
 	'/images/all animal.jpg',
@@ -30,7 +30,7 @@ const Gallery = () => {
 	const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
 	return (
-		<div className='py-24 px-4 max-w-7xl mx-auto space-y-14'>
+		<div className='my-24 px-4 max-w-7xl mx-auto space-y-14'>
 			{/* شهادات */}
 			<div className='border-green-400 border-b-2 pb-24'>
 				<h2 className='text-3xl font-bold text-center mb-10 text-darkButtonColor dark:text-darkPrimaryTextColors'>
@@ -40,7 +40,7 @@ const Gallery = () => {
 					{certificates.map((src, idx) => (
 						<motion.div
 							key={idx}
-							className='relative cursor-pointer overflow-hidden rounded-lg shadow-md'
+							className='relative cursor-pointer overflow-hidden rounded-lg'
 							initial={{ opacity: 0, y: 50 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: idx * 0.05 }}
@@ -68,7 +68,7 @@ const Gallery = () => {
 					{images.map((src, idx) => (
 						<motion.div
 							key={idx}
-							className='relative cursor-pointer overflow-hidden rounded-lg shadow-md bg-white dark:bg-[#2A2A2A]'
+							className='relative cursor-pointer overflow-hidden rounded-lg  bg-white dark:bg-[#2A2A2A]'
 							initial={{ opacity: 0, y: 50 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: idx * 0.1 }}
@@ -91,21 +91,24 @@ const Gallery = () => {
 			<AnimatePresence>
 				{selectedImage && (
 					<motion.div
-						className='fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50'
+						className='fixed -top-20 left-0 inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						onClick={() => setSelectedImage(null)}>
-						<motion.img
-							src={selectedImage}
-							alt='Selected'
-							width={80}
-							height={30}
-							className='max-w-full max-h-[80vh] rounded-lg shadow-xl'
+						<motion.div
 							initial={{ scale: 0.8 }}
 							animate={{ scale: 1 }}
 							exit={{ scale: 0.8 }}
-						/>
+							className=''>
+							<Image
+								src={selectedImage}
+								alt='Selected'
+								width={600}
+								height={400}
+								className='object-contain '
+							/>
+						</motion.div>
 					</motion.div>
 				)}
 			</AnimatePresence>

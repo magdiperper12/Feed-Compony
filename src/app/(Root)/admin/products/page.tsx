@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import AddProduct from './Add';
+import Image from 'next/image';
 
 interface Product {
 	id: number;
@@ -34,7 +35,7 @@ export default function ProductsPage() {
 						className='bg-white dark:bg-[#2F2F2F] shadow-lg rounded-lg overflow-hidden border border-gray-200 dark:border-darkButtonColor'>
 						{/* Product Image */}
 						<div className='relative'>
-							<img
+							<Image
 								src={product.image}
 								alt={product.title}
 								width={80}
