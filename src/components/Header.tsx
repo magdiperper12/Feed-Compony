@@ -39,7 +39,7 @@ export default function Header() {
 
 	return (
 		!login && (
-			<header className='  text-darkBackground  dark:text-darkPrimaryTextColors shadow-md fixed top-0 w-full z-50'>
+			<header className='  text-HeatderText  dark:text-darkPrimaryTextColors shadow-md fixed top-0 w-full z-50'>
 				<div className='fixed bottom-7 left-7 bg-ButtonColor text-white px-4 py-2 rounded-2xl text-2xl hover:bg-ButtonColoreffect transition'>
 					<Link href='/admin'>admin</Link>
 				</div>
@@ -121,7 +121,7 @@ export default function Header() {
 										<Link
 											href={href}
 											onClick={() => setIsOpen(false)}
-											className='hover:text-LinksElements transition-all duration-300'>
+											className='hover:text-LinksElements  transition-all duration-300'>
 											{label}
 										</Link>
 									</motion.div>

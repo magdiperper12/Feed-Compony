@@ -1,9 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
-import { button } from 'framer-motion/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import About from './About';
 
 interface items {
 	image: string;
@@ -122,10 +122,10 @@ const HomePage = () => {
 							className='w-full md:w-1/2 h-auto object-cover'
 						/>
 						<div className='w-full md:w-1/2 text-gray-700 dark:text-gray-200'>
-							<h3 className='text-3xl font-bold text-PrimaryTextColors mb-4'>
+							<h3 className='text-3xl font-bold text-PrimaryTextColors dark:text-darkPrimaryTextColors mb-4'>
 								{item.title}
 							</h3>
-							<p className='text-lg text-PrimaryTextColors leading-relaxed'>
+							<p className='text-lg text-PrimaryTextColors dark:text-darkPrimaryTextColors leading-relaxed'>
 								{item.description}
 							</p>
 							<Link
@@ -138,40 +138,9 @@ const HomePage = () => {
 				))}
 			</section>
 			{/* Why Choose Us Section */}
-			<section className='bg-ButtonColor dark:bg-darkButtonColor text-white py-16'>
-				<div className='container mx-auto px-6 text-center'>
-					<h2 className='text-3xl font-semibold'>لماذا تختارنا؟</h2>
-					<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12'>
-						{[
-							{
-								icon: '🌟',
-								title: 'جودة عالية',
-								desc: 'نحن نقدم خدمات عالية الجودة.',
-							},
-							{ icon: '💡', title: 'إبداع', desc: 'نبتكر حلولاً جديدة.' },
-							{
-								icon: '🤝',
-								title: 'شراكة استراتيجية',
-								desc: 'نتعاون مع عملائنا لتحقيق النجاح.',
-							},
-						].map(({ icon, title, desc }, i) => (
-							<div
-								key={i}
-								className='flex items-center justify-center'>
-								<div className='w-16 h-16 bg-white text-ButtonColor dark:text-darkButtonColor rounded-full flex items-center justify-center'>
-									<span className='text-2xl'>{icon}</span>
-								</div>
-								<div className='ml-4 text-left'>
-									<h3 className='text-xl font-semibold'>{title}</h3>
-									<p>{desc}</p>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
+			<About />
 			{/* Team Section */}{' '}
-			<section className='container mx-auto px-6 py-16'>
+			<section className='container mx-auto px-6 pb-20'>
 				<h2 className='text-5xl font-bold text-center'>فريق العمل</h2>
 				<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12'>
 					{[

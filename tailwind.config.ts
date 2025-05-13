@@ -10,6 +10,7 @@ const config: Config = {
 		extend: {
 			colors: {
 				Background: '#F4F4F4',
+				HeatderText: '#258a29',
 				PrimaryTextColors: '#333333',
 				ButtonColor: '#2F6A4F',
 				ButtonColoreffect: '#FFB81C',
