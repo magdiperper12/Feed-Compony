@@ -2,97 +2,142 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const HomePage = () => {
 	return (
 		<motion.div
-			className='bg-Background dark:bg-darkBackground min-h-screen'
+			className='min-h-screen bg-Background text-PrimaryTextColors dark:bg-darkBackground dark:text-darkPrimaryTextColors'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}>
-			<div className='max-w-7xl mx-auto px-6'>
-				<section className='bg-ButtonColor text-white text-center py-24 dark:bg-darkButtonColor'>
+			{/* Hero Section */}
+			<section
+				className='relative bg-cover bg-center h-[100vh] text-white flex justify-center items-center'
+				style={{ backgroundImage: 'url(/images/background.jpg)' }}>
+				<div className='absolute inset-0 bg-black opacity-60 dark:opacity-70'></div>
+				<div className='relative container mx-auto px-6 py-24 text-center space-y-6'>
 					<motion.h1
-						className='text-4xl font-semibold mb-4 text-white dark:text-darkPrimaryTextColors'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.2 }}>
-						مرحبًا بكم في الشركة المتحدة لصناعة الأعلاف
+						className='text-5xl md:text-6xl font-bold'
+						initial={{ opacity: 0, y: -50 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8 }}>
+						<div>
+							مرحبًا بكم في الشركة{' '}
+							<span className='text-orange-600'>المتحدة</span>
+						</div>
+						<div className='pt-7'>لصناعة الأعلاف</div>
 					</motion.h1>
+
 					<motion.p
-						className='text-xl mb-8 text-white dark:text-darkPrimaryTextColors'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.3 }}>
-						نحن نقدم حلولًا مبتكرة في صناعة الأعلاف لتلبية احتياجات عملائنا.
+						className='text-lg md:text-2xl mt-4'
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.5, duration: 0.6 }}>
+						نبذة عن شركتنا ورؤيتنا المستقبلية
 					</motion.p>
-					<motion.button
-						className='bg-white text-ButtonColor hover:bg-ButtonColoreffect transition px-6 py-2 rounded-lg dark:text-darkBackground dark:hover:bg-[#FFD366]'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.4 }}>
+
+					<motion.div
+						className='flex justify-center items-center gap-8'
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.8, duration: 0.6 }}>
 						<Link
-							href='#contact'
-							className='text-lg font-semibold'>
+							href='/Contact'
+							className='bg-white px-5 py-2 text-lg rounded-full text-darkBackground flex justify-center items-center gap-2 shadow-md hover:shadow-lg transition duration-300'>
+							<span className='bg-darkButtonColor p-2 rounded-full text-white'>
+								<FaArrowLeft className='text-xs' />
+							</span>
 							تواصل معنا
 						</Link>
-					</motion.button>
-				</section>
 
-				{/* About Section */}
-				<section
-					id='about'
-					className='py-20 bg-white dark:bg-darkBackground text-center'>
-					<motion.h2
-						className='text-3xl font-semibold mb-6 text-PrimaryTextColors dark:text-darkPrimaryTextColors'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.5 }}>
-						عن الشركة
-					</motion.h2>
-					<motion.p
-						className='text-lg mx-auto max-w-4xl text-[#666666] dark:text-[#CCCCCC]'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.6 }}>
-						الشركة المتحدة لصناعة الأعلاف هي شركة رائدة في صناعة الأعلاف
-						وتزويدها بالحلول المبتكرة في المملكة العربية السعودية. نحرص على
-						تقديم منتجات ذات جودة عالية لدعم عملائنا في تربية الحيوانات.
-					</motion.p>
-				</section>
+						<Link
+							href='/About'
+							className='bg-white px-5 py-2 text-lg rounded-full text-darkButtonColor shadow-md hover:shadow-lg transition duration-300'>
+							معرفة المزيد
+						</Link>
+					</motion.div>
+				</div>
+			</section>
 
-				{/* Products Section */}
-				<section
-					id='products'
-					className='py-20 bg-Background dark:bg-darkBackground'>
-					<motion.h2
-						className='text-3xl font-semibold text-center mb-8 text-PrimaryTextColors dark:text-darkPrimaryTextColors'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.7 }}>
-						منتجاتنا
-					</motion.h2>
-					<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
-						<div className='bg-white dark:bg-[#2A2A2A] shadow-lg rounded-lg overflow-hidden'>
-							<Image
-								width={70}
-								height={90}
-								src='/window.svg'
-								alt='Product 1'
-								className='w-full h-48 object-cover'
-							/>
-							<div className='p-6'>
-								<h3 className='text-xl font-semibold text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
-									علف للدواجن
-								</h3>
-								<p className='text-[#666666] dark:text-[#CCCCCC] mt-4'>
-									أفضل علف للدواجن يتناسب مع جميع أنواع الدواجن.
-								</p>
-							</div>
-						</div>
+			{/* Company Info Section */}
+			<section className='container mx-auto px-6 py-16'>
+				<h2 className='text-3xl font-semibold text-center'>معلومات عنا</h2>
+				<div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-12'>
+					<div>
+						<h3 className='text-xl font-semibold'>رؤيتنا</h3>
+						<p className='mt-4'>
+							نحن نسعى لأن نكون رواد في مجال تطوير الحلول التقنية المبتكرة...
+						</p>
 					</div>
-				</section>
-			</div>
+					<div>
+						<h3 className='text-xl font-semibold'>مهمتنا</h3>
+						<p className='mt-4'>
+							هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...
+						</p>
+					</div>
+				</div>
+			</section>
+
+			{/* Why Choose Us Section */}
+			<section className='bg-ButtonColor dark:bg-darkButtonColor text-white py-16'>
+				<div className='container mx-auto px-6 text-center'>
+					<h2 className='text-3xl font-semibold'>لماذا تختارنا؟</h2>
+					<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12'>
+						{[
+							{
+								icon: '🌟',
+								title: 'جودة عالية',
+								desc: 'نحن نقدم خدمات عالية الجودة.',
+							},
+							{ icon: '💡', title: 'إبداع', desc: 'نبتكر حلولاً جديدة.' },
+							{
+								icon: '🤝',
+								title: 'شراكة استراتيجية',
+								desc: 'نتعاون مع عملائنا لتحقيق النجاح.',
+							},
+						].map(({ icon, title, desc }, i) => (
+							<div
+								key={i}
+								className='flex items-center justify-center'>
+								<div className='w-16 h-16 bg-white text-ButtonColor dark:text-darkButtonColor rounded-full flex items-center justify-center'>
+									<span className='text-2xl'>{icon}</span>
+								</div>
+								<div className='ml-4 text-left'>
+									<h3 className='text-xl font-semibold'>{title}</h3>
+									<p>{desc}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			{/* Team Section */}
+			<section className='container mx-auto px-6 py-16'>
+				<h2 className='text-3xl font-semibold text-center'>فريق العمل</h2>
+				<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12'>
+					{[
+						{ name: 'أحمد محمد', role: 'مطور Frontend' },
+						{ name: 'محمد علي', role: 'مطور Backend' },
+						{ name: 'سارة محمود', role: 'مصممة UX/UI' },
+					].map(({ name, role }, index) => (
+						<div
+							key={index}
+							className='text-center'>
+							<Image
+								src='/window.svg'
+								alt={`فريق العمل ${index + 1}`}
+								width={150}
+								height={150}
+								className='rounded-full mx-auto object-cover'
+							/>
+							<h3 className='mt-4 font-semibold'>{name}</h3>
+							<p>{role}</p>
+						</div>
+					))}
+				</div>
+			</section>
 		</motion.div>
 	);
 };

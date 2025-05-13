@@ -9,7 +9,6 @@ import AImessage from './ChatBot';
 import Dark from './theme/Dark';
 
 const navLinks = [
-	{ href: '/Contact', label: 'تواصل معنا' },
 	{ href: '/Calculator', label: 'حاسبة الشركة' },
 	{ href: '/JobOpportunities', label: 'التوظيف' },
 	{ href: '/Products', label: 'منتجاتنا' },
@@ -40,42 +39,39 @@ export default function Header() {
 
 	return (
 		!login && (
-			<header className='bg-Background dark:bg-darkBackground text-[#333] dark:text-darkPrimaryTextColors shadow-md fixed top-0 w-full z-50'>
-				{/* زر الإدارة */}
+			<header className='  text-darkBackground  dark:text-darkPrimaryTextColors shadow-md fixed top-0 w-full z-50'>
 				<div className='fixed bottom-7 left-7 bg-ButtonColor text-white px-4 py-2 rounded-2xl text-2xl hover:bg-ButtonColoreffect transition'>
 					<Link href='/admin'>admin</Link>
 				</div>
 
-				{/* رسالة الذكاء الاصطناعي */}
 				<div className='fixed bottom-7 right-7'>
 					<AImessage />
 				</div>
 
-				{/* العنوان الرئيسي */}
-				<div className='max-w-7xl mx-auto px-8 py-4 flex justify-between items-center'>
-					<Link
-						href='/'
-						className='text-3xl font-bold bg-white dark:bg-ButtonColor dark:text-white rounded-3xl px-4 py-3 outline-none uppercase tracking-wider hover:text-LinksElements transition-all duration-300'>
-						<Image
-							src='/images/logo-removebg.png'
-							width={30}
-							height={30}
-							alt='Logo'
-						/>
-					</Link>
-
-					{/* خيارات سطح المكتب */}
-					<div className='hidden lg:flex items-center gap-4'>
-						<Dark />
+				<div className=' mx-auto px-8 py-3  flex justify-between items-center inset-x-0  backdrop-blur-lg dark:bg-black/30 bg-white/40 w-full'>
+					<div className='flex justify-center items-center gap-6'>
 						<Link
-							href='/sign-in'
-							target='_blank'
-							className='border-2 border-ButtonColor text-ButtonColor dark:text-white p-1 px-3 text-lg rounded-xl hover:bg-ButtonColoreffect transition'>
-							sign-in
+							href='/'
+							className='text-3xl font-bold dark:bg-white rounded-3xl px-4  outline-none uppercase tracking-wider hover:text-LinksElements transition-all duration-300'>
+							<Image
+								src='/images/logo-removebg.png'
+								width={80}
+								height={30}
+								alt='Logo'
+							/>
 						</Link>
+
+						<div className='hidden lg:flex items-center gap-4'>
+							<Dark />
+							<Link
+								href='/sign-in'
+								target='_blank'
+								className='border-2 border-ButtonColor text-ButtonColor dark:text-white p-1 px-3 text-lg rounded-xl hover:bg-ButtonColoreffect transition'>
+								sign-in
+							</Link>
+						</div>
 					</div>
 
-					{/* روابط التنقل لسطح المكتب */}
 					<motion.nav
 						initial={{ opacity: 0, y: -10 }}
 						animate={{ opacity: 1, y: 0 }}
