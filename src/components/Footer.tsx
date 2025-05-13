@@ -20,7 +20,7 @@ export default function Footer() {
 
 	return (
 		!login && (
-			<footer className='bg-Background dark:bg-darkBackground text-PrimaryTextColors dark:text-darkPrimaryTextColors py-10'>
+			<footer className='bg-green-200 dark:bg-darkBackground text-PrimaryTextColors dark:text-darkPrimaryTextColors py-10'>
 				<div className='max-w-7xl mx-auto px-8'>
 					<div className='flex flex-col md:flex-row justify-between gap-8'>
 						{/* روابط سريعة */}

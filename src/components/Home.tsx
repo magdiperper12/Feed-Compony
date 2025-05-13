@@ -1,15 +1,49 @@
 'use client';
 import { motion } from 'framer-motion';
+import { button } from 'framer-motion/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
+interface items {
+	image: string;
+	title: string;
+	description: string;
+	button: string;
+	link: string;
+}
 const HomePage = () => {
+	const items: items[] = [
+		{
+			image: '/images/animal.png',
+			title: 'اعلاف حيونات اخري',
+			description:
+				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...',
+			button: 'معرفة المزيد',
+			link: '/types/animal',
+		},
+		{
+			image: '/images/poultryimage.png',
+			title: 'اعلاف دواجن',
+			description:
+				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...',
+			button: 'معرفة المزيد',
+			link: '/types/poultry',
+		},
+		{
+			image: '/images/mwashi.png',
+			title: 'اعلاف مواشي',
+			description:
+				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...',
+			button: 'معرفة المزيد',
+			link: '/types/mwashi',
+		},
+	];
 	return (
 		<motion.div
-			className='min-h-screen bg-Background text-PrimaryTextColors dark:bg-darkBackground dark:text-darkPrimaryTextColors'
+			className='min-h-screen space-y-16 md:space-y-20 lg:space-y-24 xl:space-y-36 bg-Background text-PrimaryTextColors dark:bg-darkBackground dark:text-darkPrimaryTextColors'
 			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
+			whileInView={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}>
 			{/* Hero Section */}
 			<section
@@ -59,26 +93,50 @@ const HomePage = () => {
 					</motion.div>
 				</div>
 			</section>
-
 			{/* Company Info Section */}
-			<section className='container mx-auto px-6 py-16'>
-				<h2 className='text-3xl font-semibold text-center'>معلومات عنا</h2>
-				<div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-12'>
-					<div>
-						<h3 className='text-xl font-semibold'>رؤيتنا</h3>
-						<p className='mt-4'>
-							نحن نسعى لأن نكون رواد في مجال تطوير الحلول التقنية المبتكرة...
-						</p>
-					</div>
-					<div>
-						<h3 className='text-xl font-semibold'>مهمتنا</h3>
-						<p className='mt-4'>
-							هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...
-						</p>
-					</div>
-				</div>
-			</section>
+			<section className='container mx-auto px-5 md:px-10 lg:px-16 xl:px-32  '>
+				<motion.h2
+					className='text-3xl md:text-4xl font-bold text-center text-primary mb-12'
+					initial={{ opacity: 0, y: -20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8 }}>
+					شركة المتحده للاعلاف
+				</motion.h2>
 
+				{items.map((item, index) => (
+					<motion.div
+						key={index}
+						className={`mt-12 flex flex-col md:flex-row ${
+							index === 1 ? 'md:flex-row-reverse' : ''
+						} items-center gap-10`}
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6, delay: index * 0.2 }}>
+						<motion.img
+							src={item.image}
+							alt={item.title}
+							initial={{ opacity: 0, y: 60 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, delay: index * 0.12 }}
+							className='w-full md:w-1/2 h-auto object-cover'
+						/>
+						<div className='w-full md:w-1/2 text-gray-700 dark:text-gray-200'>
+							<h3 className='text-3xl font-bold text-PrimaryTextColors mb-4'>
+								{item.title}
+							</h3>
+							<p className='text-lg text-PrimaryTextColors leading-relaxed'>
+								{item.description}
+							</p>
+							<Link
+								href={item.link}
+								className='inline-block mt-6 px-6 py-2 bg-darkButtonColor text-white rounded-md shadow hover:bg-primary-dark transition duration-300'>
+								{item.button}
+							</Link>
+						</div>
+					</motion.div>
+				))}
+			</section>
 			{/* Why Choose Us Section */}
 			<section className='bg-ButtonColor dark:bg-darkButtonColor text-white py-16'>
 				<div className='container mx-auto px-6 text-center'>
@@ -112,26 +170,29 @@ const HomePage = () => {
 					</div>
 				</div>
 			</section>
-
-			{/* Team Section */}
+			{/* Team Section */}{' '}
 			<section className='container mx-auto px-6 py-16'>
-				<h2 className='text-3xl font-semibold text-center'>فريق العمل</h2>
+				<h2 className='text-5xl font-bold text-center'>فريق العمل</h2>
 				<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12'>
 					{[
-						{ name: 'أحمد محمد', role: 'مطور Frontend' },
-						{ name: 'محمد علي', role: 'مطور Backend' },
-						{ name: 'سارة محمود', role: 'مصممة UX/UI' },
+						{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
+						{ name: 'محمد علي', role: 'عامل بالمصنع' },
+						{ name: 'سارة محمود', role: 'عامل بالمصنع' },
 					].map(({ name, role }, index) => (
 						<div
 							key={index}
-							className='text-center'>
-							<Image
-								src='/window.svg'
-								alt={`فريق العمل ${index + 1}`}
-								width={150}
-								height={150}
-								className='rounded-full mx-auto object-cover'
-							/>
+							className='text-center flex flex-col justify-center items-center'>
+							<div className=' w-44 h-44  rounded-full overflow-hidden'>
+								{' '}
+								<Image
+									src='/images/man.jpg'
+									alt={`فريق العمل ${index + 1}`}
+									width={150}
+									height={150}
+									className='object-cover size-52'
+								/>
+							</div>
+
 							<h3 className='mt-4 font-semibold'>{name}</h3>
 							<p>{role}</p>
 						</div>

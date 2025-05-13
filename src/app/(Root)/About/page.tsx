@@ -37,7 +37,6 @@ const AboutPage = () => {
 						</Link>
 					</motion.button>
 				</section>
-
 				{/* About Section */}
 				<section
 					id='about'
@@ -58,37 +57,33 @@ const AboutPage = () => {
 						وتزويدها بالحلول المبتكرة في المملكة العربية السعودية. نحرص على
 						تقديم منتجات ذات جودة عالية لدعم عملائنا في تربية الحيوانات.
 					</motion.p>
-				</section>
+				</section>{' '}
+				<section className='container mx-auto px-6 py-16'>
+					<h2 className='text-3xl font-semibold text-center'>فريق العمل</h2>
+					<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12'>
+						{[
+							{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
+							{ name: 'محمد علي', role: 'عامل بالمصنع' },
+							{ name: 'سارة محمود', role: 'عامل بالمصنع' },
+						].map(({ name, role }, index) => (
+							<div
+								key={index}
+								className='text-center flex flex-col justify-center items-center'>
+								<div className=' w-44 h-44  rounded-full overflow-hidden'>
+									{' '}
+									<Image
+										src='/images/man.jpg'
+										alt={`فريق العمل ${index + 1}`}
+										width={150}
+										height={150}
+										className='object-cover size-52'
+									/>
+								</div>
 
-				{/* Products Section */}
-				<section
-					id='products'
-					className='py-20 bg-Background dark:bg-darkBackground'>
-					<motion.h2
-						className='text-3xl font-semibold text-center mb-8 text-PrimaryTextColors dark:text-darkPrimaryTextColors'
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.7 }}>
-						منتجاتنا
-					</motion.h2>
-					<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
-						<div className='bg-white dark:bg-[#2A2A2A] shadow-lg rounded-lg overflow-hidden'>
-							<Image
-								width={70}
-								height={90}
-								src='/window.svg'
-								alt='Product 1'
-								className='w-full h-48 object-cover'
-							/>
-							<div className='p-6'>
-								<h3 className='text-xl font-semibold text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
-									علف للدواجن
-								</h3>
-								<p className='text-[#666666] dark:text-[#CCCCCC] mt-4'>
-									أفضل علف للدواجن يتناسب مع جميع أنواع الدواجن.
-								</p>
+								<h3 className='mt-4 font-semibold'>{name}</h3>
+								<p>{role}</p>
 							</div>
-						</div>
+						))}
 					</div>
 				</section>
 			</div>
