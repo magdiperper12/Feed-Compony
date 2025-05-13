@@ -1,4 +1,3 @@
-// src/app/admin/products/add/page.tsx
 'use client';
 
 import React, { useState } from 'react';
@@ -32,8 +31,10 @@ export default function AddProduct() {
 	};
 
 	return (
-		<div className='p-6 max-w-xl mx-auto'>
-			<h2 className='text-2xl font-bold mb-4 text-gray-800'>إضافة منتج</h2>
+		<div className='p-6 max-w-xl mx-auto bg-Background dark:bg-darkBackground'>
+			<h2 className='text-2xl font-bold mb-4 text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
+				إضافة منتج
+			</h2>
 			<form
 				onSubmit={handleSubmit}
 				className='space-y-4'>
@@ -41,36 +42,36 @@ export default function AddProduct() {
 					name='title'
 					onChange={handleChange}
 					placeholder='اسم المنتج'
-					className='w-full p-2 border rounded'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
 				/>
 				<input
 					name='price'
 					onChange={handleChange}
 					placeholder='السعر'
 					type='number'
-					className='w-full p-2 border rounded'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
 				/>
 				<textarea
 					name='description'
 					onChange={handleChange}
 					placeholder='الوصف'
-					className='w-full p-2 border rounded'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
 				/>
 				<input
 					name='category'
 					onChange={handleChange}
 					placeholder='الفئة'
-					className='w-full p-2 border rounded'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
 				/>
 				<input
 					name='image'
 					onChange={handleChange}
 					placeholder='رابط الصورة'
-					className='w-full p-2 border rounded'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
 				/>
 				<button
 					type='submit'
-					className='bg-blue-600 text-white px-4 py-2 rounded'>
+					className='bg-ButtonColor text-white px-4 py-2 rounded hover:bg-ButtonColoreffect dark:bg-darkButtonColor dark:hover:bg-[#FFD366]'>
 					إرسال
 				</button>
 			</form>

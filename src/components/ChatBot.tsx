@@ -128,7 +128,7 @@ const AImessage: React.FC = () => {
 		<div className=''>
 			<div className='group relative m-2 flex justify-center items-center'>
 				<div
-					className={`bg-transparent text-white border-2 border-blue-300 rounded-full h-12 w-12 md:h-16 md:w-16 cursor-pointer shadow-lg shadow-blue-300 dark:shadow-blue-600 flex justify-center items-center z-50 transition-transform duration-300 ease-in-out ${
+					className={`bg-gray-100 text-white border-2 border-blue-300 rounded-full h-12 w-12 md:h-16 md:w-16 cursor-pointer shadow-lg shadow-blue-300 dark:shadow-blue-600 flex justify-center items-center z-50 transition-transform duration-300 ease-in-out ${
 						isVisible ? 'opacity-0' : 'opacity-100'
 					}`}
 					onClick={handleToggle}>

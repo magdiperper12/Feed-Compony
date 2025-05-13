@@ -4,17 +4,15 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const FeedCalculator = () => {
-	// State to hold user input
 	const [animalType, setAnimalType] = useState<string>('');
 	const [daysCount, setDaysCount] = useState<number>(0);
 	const [animalsCount, setAnimalsCount] = useState<number>(0);
 	const [weightPerAnimal, setWeightPerAnimal] = useState<number>(0);
 	const [feedAmount, setFeedAmount] = useState<number | null>(null);
 
-	// Feed calculation function
 	const calculateFeed = () => {
 		if (daysCount > 0 && animalsCount > 0 && weightPerAnimal > 0) {
-			const feedPerKg = 0.05; // Assume feed required per kg of weight
+			const feedPerKg = 0.05;
 			const totalWeight = animalsCount * weightPerAnimal;
 			const totalFeedRequired = totalWeight * feedPerKg * daysCount;
 			setFeedAmount(totalFeedRequired);
@@ -23,15 +21,14 @@ const FeedCalculator = () => {
 
 	return (
 		<motion.div
-			className='bg-gray-100 min-h-screen py-12'
+			className='bg-Background dark:bg-darkBackground min-h-screen py-12'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}>
 			<div className='max-w-7xl mx-auto px-6'>
-				{/* Vision Logo */}
 				<div className='text-center mb-8'>
 					<Image
-						src='/window.svg' // Replace with Vision Logo
+						src='/window.svg'
 						alt='Vision Logo'
 						width={60}
 						height={80}
@@ -39,38 +36,36 @@ const FeedCalculator = () => {
 					/>
 				</div>
 
-				{/* Title Section */}
 				<motion.div
 					className='text-center mb-12'
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.2 }}>
-					<h1 className='text-4xl font-bold text-gray-800'>
+					<h1 className='text-4xl font-bold text-[#333] dark:text-darkPrimaryTextColors'>
 						حاسبة أعلاف المتحدة
 					</h1>
-					<p className='text-xl text-gray-600 mt-4'>
+					<p className='text-xl text-[#555] dark:text-[#ccc] mt-4'>
 						هذه الحاسبة الخاصة بشركة المتحدة لصناعة الأعلاف تسهل على عملائنا
 						تحديد البرنامج والكمية التي يحتاجها وخيارات التغذية حسب البرنامج
 						الذي يرغب به المربي.
 					</p>
 				</motion.div>
 
-				{/* Feed Calculator Form */}
 				<motion.div
-					className='bg-white p-8 shadow-lg rounded-lg'
+					className='bg-white dark:bg-[#2A2A2A] p-8 shadow-lg rounded-lg'
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.3 }}>
 					<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 						{/* Feeding Program */}
 						<div>
-							<label className='block text-gray-700 text-lg'>
+							<label className='block text-[#333] dark:text-darkPrimaryTextColors text-lg'>
 								برنامج التغذية
 							</label>
 							<select
 								value={animalType}
 								onChange={(e) => setAnimalType(e.target.value)}
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md'>
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-[#333] dark:text-darkPrimaryTextColors'>
 								<option value=''>اختر برنامج التغذية</option>
 								<option value='Poultry'>دواجن</option>
 								<option value='Cattle'>أبقار</option>
@@ -80,11 +75,13 @@ const FeedCalculator = () => {
 
 						{/* Animal Type */}
 						<div>
-							<label className='block text-gray-700 text-lg'>نوع الحيوان</label>
+							<label className='block text-[#333] dark:text-darkPrimaryTextColors text-lg'>
+								نوع الحيوان
+							</label>
 							<select
 								value={animalType}
 								onChange={(e) => setAnimalType(e.target.value)}
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md'>
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-[#333] dark:text-darkPrimaryTextColors'>
 								<option value=''>اختر نوع الدواجن</option>
 								<option value='Poultry'>دواجن</option>
 								<option value='Cattle'>أبقار</option>
@@ -94,10 +91,12 @@ const FeedCalculator = () => {
 
 						{/* Days Count */}
 						<div>
-							<label className='block text-gray-700 text-lg'>عدد الأيام</label>
+							<label className='block text-[#333] dark:text-darkPrimaryTextColors text-lg'>
+								عدد الأيام
+							</label>
 							<input
 								type='number'
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md'
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-[#333] dark:text-darkPrimaryTextColors'
 								value={daysCount}
 								onChange={(e) => setDaysCount(Number(e.target.value))}
 							/>
@@ -105,12 +104,12 @@ const FeedCalculator = () => {
 
 						{/* Animals Count */}
 						<div>
-							<label className='block text-gray-700 text-lg'>
+							<label className='block text-[#333] dark:text-darkPrimaryTextColors text-lg'>
 								عدد الحيوانات
 							</label>
 							<input
 								type='number'
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md'
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-[#333] dark:text-darkPrimaryTextColors'
 								value={animalsCount}
 								onChange={(e) => setAnimalsCount(Number(e.target.value))}
 							/>
@@ -118,41 +117,42 @@ const FeedCalculator = () => {
 
 						{/* Weight per Animal */}
 						<div>
-							<label className='block text-gray-700 text-lg'>
+							<label className='block text-[#333] dark:text-darkPrimaryTextColors text-lg'>
 								معدل وزن الحيوان الواحد (بالكيلو)
 							</label>
 							<input
 								type='number'
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md'
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-[#333] dark:text-darkPrimaryTextColors'
 								value={weightPerAnimal}
 								onChange={(e) => setWeightPerAnimal(Number(e.target.value))}
 							/>
 						</div>
 
+						{/* Button */}
 						<div className='col-span-2'>
 							<button
 								onClick={calculateFeed}
-								className='w-full p-3 bg-blue-600 text-white text-lg rounded-md mt-4 hover:bg-blue-700'>
+								className='w-full p-3 text-white text-lg rounded-md mt-4 bg-ButtonColor hover:bg-ButtonColoreffect dark:bg-darkButtonColor dark:hover:bg-[#FFD366] transition-colors'>
 								احسب كمية العلف
 							</button>
 						</div>
 					</div>
 				</motion.div>
 
-				{/* Result Section */}
+				{/* Result */}
 				{feedAmount !== null && (
 					<motion.div
-						className='mt-8 bg-white p-8 shadow-lg rounded-lg'
+						className='mt-8 bg-white dark:bg-[#2A2A2A] p-8 shadow-lg rounded-lg'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.4 }}>
-						<h2 className='text-2xl font-semibold text-gray-800 mb-4'>
+						<h2 className='text-2xl font-semibold text-[#333] dark:text-darkPrimaryTextColors mb-4'>
 							نتيجة الحسبة
 						</h2>
-						<p className='text-lg text-gray-700'>
+						<p className='text-lg text-[#555] dark:text-[#ccc]'>
 							بناءً على المدخلات الخاصة بك، كمية العلف المطلوبة هي:
 						</p>
-						<p className='text-2xl font-bold text-gray-800 mt-4'>
+						<p className='text-2xl font-bold text-[#333] dark:text-darkPrimaryTextColors mt-4'>
 							{feedAmount.toFixed(2)} كيلوغرام
 						</p>
 					</motion.div>

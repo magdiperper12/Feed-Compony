@@ -9,14 +9,17 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#d9d9d95e',
-				secoundry: '#FFD8A9',
-				third: '#F1A661',
-				forth: '#E38B29',
-				darkprimary: '#000000',
-				darksecoundry: '#854836',
-				darkthird: '#FFB22C',
-				darkforth: '#F7F7F7',
+				Background: '#F4F4F4',
+				PrimaryTextColors: '#333333',
+				ButtonColor: '#2F6A4F',
+				ButtonColoreffect: '#FFB81C',
+				LinksElements: '#6DBE45',
+				//
+				darkBackground: '#1A1A1A',
+				darkPrimaryTextColors: '#F1F1F1',
+				darkButtonColor: '#4CAF50',
+				DarkButtonColoreffect: '#FF081C',
+				darkButtonColoreffect: '#FFD366',
 			},
 
 			animation: {

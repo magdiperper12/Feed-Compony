@@ -12,9 +12,9 @@ const COLORS = ['#00C49F', '#FFBB28', '#FF8042'];
 
 export default function DashboardPage() {
 	return (
-		<div className='p-6 space-y-8 bg-white rounded-xl shadow-md'>
+		<div className='p-6 space-y-8 bg-white dark:bg-darkBackground rounded-xl shadow-md'>
 			<motion.h1
-				className='text-3xl font-extrabold text-gray-800'
+				className='text-3xl font-extrabold text-gray-800 dark:text-darkPrimaryTextColors'
 				initial={{ opacity: 0, y: -10 }}
 				animate={{ opacity: 1, y: 0 }}>
 				مرحبًا بك في لوحة التحكم 🐓
@@ -41,8 +41,8 @@ export default function DashboardPage() {
 			</div>
 
 			{/* رسم بياني للطلبات */}
-			<div className='bg-gray-50 rounded-lg shadow p-6'>
-				<h2 className='text-lg font-semibold mb-4 text-gray-700'>
+			<div className='bg-gray-50 dark:bg-gray-800 rounded-lg shadow p-6'>
+				<h2 className='text-lg font-semibold mb-4 text-gray-700 dark:text-darkPrimaryTextColors'>
 					تحليل الطلبات
 				</h2>
 				<div className='w-full h-64'>
@@ -75,9 +75,11 @@ export default function DashboardPage() {
 
 const StatCard = ({ title, value }: { title: string; value: string }) => (
 	<motion.div
-		className='bg-green-50 p-4 rounded-xl shadow hover:shadow-lg transition'
+		className='bg-green-50 dark:bg-green-700 p-4 rounded-xl shadow hover:shadow-lg transition'
 		whileHover={{ scale: 1.03 }}>
-		<p className='text-sm text-gray-500'>{title}</p>
-		<p className='text-2xl font-bold text-green-800'>{value}</p>
+		<p className='text-sm text-gray-500 dark:text-darkPrimaryTextColors'>
+			{title}
+		</p>
+		<p className='text-2xl font-bold text-green-800 dark:text-white'>{value}</p>
 	</motion.div>
 );

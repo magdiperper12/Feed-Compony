@@ -6,28 +6,28 @@ import Link from 'next/link';
 const HomePage = () => {
 	return (
 		<motion.div
-			className='bg-gray-100 min-h-screen'
+			className='bg-Background dark:bg-darkBackground min-h-screen'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}>
 			<div className='max-w-7xl mx-auto px-6'>
-				<section className='bg-blue-500 text-white text-center py-24'>
+				<section className='bg-ButtonColor text-white text-center py-24 dark:bg-darkButtonColor'>
 					<motion.h1
-						className='text-4xl font-semibold mb-4'
+						className='text-4xl font-semibold mb-4 text-white dark:text-darkPrimaryTextColors'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.2 }}>
 						مرحبًا بكم في الشركة المتحدة لصناعة الأعلاف
 					</motion.h1>
 					<motion.p
-						className='text-xl mb-8'
+						className='text-xl mb-8 text-white dark:text-darkPrimaryTextColors'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.3 }}>
 						نحن نقدم حلولًا مبتكرة في صناعة الأعلاف لتلبية احتياجات عملائنا.
 					</motion.p>
 					<motion.button
-						className='inline-block bg-white text-blue-500 px-6 py-2 rounded-lg'
+						className='bg-white text-ButtonColor hover:bg-ButtonColoreffect transition px-6 py-2 rounded-lg dark:text-darkBackground dark:hover:bg-[#FFD366]'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.4 }}>
@@ -38,18 +38,20 @@ const HomePage = () => {
 						</Link>
 					</motion.button>
 				</section>
+
+				{/* About Section */}
 				<section
 					id='about'
-					className='py-20 bg-white text-center'>
+					className='py-20 bg-white dark:bg-darkBackground text-center'>
 					<motion.h2
-						className='text-3xl font-semibold text-gray-800 mb-6'
+						className='text-3xl font-semibold mb-6 text-PrimaryTextColors dark:text-darkPrimaryTextColors'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.5 }}>
 						عن الشركة
 					</motion.h2>
 					<motion.p
-						className='text-lg text-gray-600 mx-auto max-w-4xl'
+						className='text-lg mx-auto max-w-4xl text-[#666666] dark:text-[#CCCCCC]'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.6 }}>
@@ -62,17 +64,16 @@ const HomePage = () => {
 				{/* Products Section */}
 				<section
 					id='products'
-					className='py-20 bg-gray-100'>
+					className='py-20 bg-Background dark:bg-darkBackground'>
 					<motion.h2
-						className='text-3xl font-semibold text-gray-800 text-center mb-8'
+						className='text-3xl font-semibold text-center mb-8 text-PrimaryTextColors dark:text-darkPrimaryTextColors'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.7 }}>
 						منتجاتنا
 					</motion.h2>
 					<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
-						{/* Example Product */}
-						<div className='bg-white shadow-lg rounded-lg overflow-hidden'>
+						<div className='bg-white dark:bg-[#2A2A2A] shadow-lg rounded-lg overflow-hidden'>
 							<Image
 								width={70}
 								height={90}
@@ -81,10 +82,10 @@ const HomePage = () => {
 								className='w-full h-48 object-cover'
 							/>
 							<div className='p-6'>
-								<h3 className='text-xl font-semibold text-gray-800'>
+								<h3 className='text-xl font-semibold text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
 									علف للدواجن
 								</h3>
-								<p className='text-gray-600 mt-4'>
+								<p className='text-[#666666] dark:text-[#CCCCCC] mt-4'>
 									أفضل علف للدواجن يتناسب مع جميع أنواع الدواجن.
 								</p>
 							</div>

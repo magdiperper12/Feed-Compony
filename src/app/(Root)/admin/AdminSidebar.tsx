@@ -6,8 +6,6 @@ import { useState } from 'react';
 const links = [
 	{ name: 'لوحة التحكم', href: '/admin/dashboard' },
 	{ name: 'المنتجات', href: '/admin/products' },
-	{ name: 'الطلبات', href: '/admin/orders' },
-	{ name: 'الاعدادات', href: '/admin/Settings' },
 ];
 
 export default function AdminSidebar() {
@@ -31,10 +29,10 @@ export default function AdminSidebar() {
 
 			{/* Sidebar container */}
 			<aside
-				className={`absolute md:relative h-80 md:h-screen w-full md:w-64 pt-20 md:pt-3 bg-white shadow-md p-4 ${
+				className={`absolute md:relative h-80 md:h-screen w-full md:w-64 pt-20  dark:text-white md:pt-3 bg-white dark:bg-darkBackground shadow-md p-4 ${
 					isSidebarVisible ? 'block' : 'hidden'
 				} md:block`}>
-				<h2 className='text-2xl font-bold text-center mb-6 pt-2'>
+				<h2 className='text-2xl font-bold text-center mb-6 pt-2 text-gray-800 dark:text-white '>
 					لوحة التحكم
 				</h2>
 				<nav className='flex flex-col gap-2'>
@@ -42,8 +40,10 @@ export default function AdminSidebar() {
 						<Link
 							key={link.href}
 							href={link.href}
-							className={`p-2 rounded hover:bg-gray-100 ${
-								pathname === link.href ? 'bg-gray-200 font-semibold' : ''
+							className={`p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 ${
+								pathname === link.href
+									? 'bg-gray-200 dark:bg-gray-800 font-semibold'
+									: ''
 							}`}>
 							{link.name}
 						</Link>

@@ -21,8 +21,8 @@ const Gallery = () => {
 	const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
 	return (
-		<div className='py-10 px-4 max-w-7xl mx-auto'>
-			<h2 className='text-3xl font-bold text-center mb-10 text-gray-800'>
+		<div className='py-10 px-4 max-w-7xl mx-auto bg-Background dark:bg-darkBackground'>
+			<h2 className='text-3xl font-bold text-center mb-10 text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
 				معرض الصور
 			</h2>
 
@@ -30,7 +30,7 @@ const Gallery = () => {
 				{images.map((src, idx) => (
 					<motion.div
 						key={idx}
-						className='relative cursor-pointer overflow-hidden rounded-lg shadow-md'
+						className='relative cursor-pointer overflow-hidden rounded-lg shadow-md bg-white dark:bg-[#2A2A2A]'
 						whileHover={{ scale: 1.03 }}
 						onClick={() => setSelectedImage(src)}>
 						<Image
