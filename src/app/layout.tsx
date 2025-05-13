@@ -26,7 +26,7 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} antialiased custom-scroll bg-transparent`}>
 				<Header />
-				<div className='pt-4 xl:pt-16'>{children}</div>
+				<div className='pt-4 xl:pt-20'>{children}</div>
 				<Footer />
 			</body>
 		</html>
