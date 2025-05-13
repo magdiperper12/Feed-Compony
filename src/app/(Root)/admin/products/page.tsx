@@ -37,6 +37,8 @@ export default function ProductsPage() {
 							<img
 								src={product.image}
 								alt={product.title}
+								width={80}
+								height={30}
 								className='w-full h-48 object-cover'
 							/>
 							<div className='absolute top-2 left-2 bg-blue-600 text-white px-2 py-1 text-sm rounded'>

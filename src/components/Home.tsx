@@ -117,6 +117,8 @@ const HomePage = () => {
 							src={item.image}
 							alt={item.title}
 							initial={{ opacity: 0, y: 60 }}
+							width={80}
+							height={30}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: index * 0.12 }}
 							className='w-full md:w-1/2 h-auto object-cover'

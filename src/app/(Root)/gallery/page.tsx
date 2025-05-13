@@ -99,6 +99,8 @@ const Gallery = () => {
 						<motion.img
 							src={selectedImage}
 							alt='Selected'
+							width={80}
+							height={30}
 							className='max-w-full max-h-[80vh] rounded-lg shadow-xl'
 							initial={{ scale: 0.8 }}
 							animate={{ scale: 1 }}

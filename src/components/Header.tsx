@@ -52,12 +52,15 @@ export default function Header() {
 					<div className='flex justify-center items-center gap-6'>
 						<Link
 							href='/'
-							className='text-3xl font-bold dark:bg-white rounded-3xl px-4  outline-none uppercase tracking-wider hover:text-LinksElements transition-all duration-300'>
-							<Image
+							rel='preload'
+							className='text-3xl font-bold dark:bg-white rounded-3xl px-4 outline-none uppercase tracking-wider hover:text-LinksElements transition-all duration-300'>
+							<img
 								src='/images/logo-removebg.png'
+								alt='Logo'
 								width={80}
 								height={30}
-								alt='Logo'
+								decoding='async'
+								className='w-[80px] h-[30px]'
 							/>
 						</Link>
 
