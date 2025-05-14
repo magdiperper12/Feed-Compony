@@ -26,7 +26,7 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} antialiased custom-scroll bg-white dark:bg-black`}>
 				<Header />
-				<div className=' '>{children}</div>
+				<div className=' text-right '>{children}</div>
 				<Footer />
 			</body>
 		</html>

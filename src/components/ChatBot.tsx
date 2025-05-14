@@ -26,7 +26,7 @@ const AImessage: React.FC = () => {
 	const [time, setTime] = useState('');
 
 	const handleToggle = () => {
-		const audio = new Audio('/audio/open-chat.mp3');
+		const audio = new Audio('/audio/Select.mp3');
 		audio.play();
 		setIsVisible(!isVisible);
 	};
@@ -119,7 +119,7 @@ const AImessage: React.FC = () => {
 				key={index}
 				onClick={() => handleQuestionClick(item.question)}
 				aria-label='إعدادات'
-				className='border-2 border-blue-500 p-2 w-3/4 hover:bg-blue-200 rounded-lg hover:text-white transition-all duration-150 hover:border-blue-500'>
+				className='border-2 border-green-500 p-2 w-3/4 hover:bg-green-200 rounded-lg hover:text-white transition-all duration-150 hover:border-green-500'>
 				{item.question}
 			</button>
 		));
@@ -128,7 +128,7 @@ const AImessage: React.FC = () => {
 		<div className=''>
 			<div className='group relative m-2 flex justify-center items-center'>
 				<div
-					className={`bg-gray-100 text-white border-2 border-blue-300 rounded-full h-12 w-12 md:h-16 md:w-16 cursor-pointer shadow-lg shadow-blue-300 dark:shadow-blue-600 flex justify-center items-center z-50 transition-transform duration-300 ease-in-out ${
+					className={`bg-gray-100 text-white border-2 border-green-300 rounded-full h-12 w-12 md:h-16 md:w-16 cursor-pointer shadow-lg shadow-green-300 dark:shadow-green-600 flex justify-center items-center z-50 transition-transform duration-300 ease-in-out ${
 						isVisible ? 'opacity-0' : 'opacity-100'
 					}`}
 					onClick={handleToggle}>
@@ -144,13 +144,13 @@ const AImessage: React.FC = () => {
 
 			{/* Chat Box */}
 			<div
-				className={`z-50 transition-transform  duration-500 ease-in-out w-10/12 md:w-96 shadow-custom shadow-blue-200 rounded-2xl fixed ${
+				className={`z-50 transition-transform  duration-500 ease-in-out w-10/12 md:w-96 shadow-custom shadow-green-200 rounded-2xl fixed ${
 					isVisible
 						? 'bottom-10 end-8 md:bottom-20 md:end-8 lg:bottom-24 lg:end-10 xl:bottom-16 translate-y-0 opacity-100'
 						: 'bottom-8 md:end-8 md:bottom-12 translate-y-full opacity-0 pointer-events-none'
 				}`}>
 				{/* Header */}
-				<div className='bg-blue-500 text-white px-7 py-6 md:py-4  flex justify-between items-center rounded-t-2xl'>
+				<div className='bg-green-500 text-white px-7 py-6 md:py-4  flex justify-between items-center rounded-t-2xl'>
 					<div className='flex items-center'>
 						<Image
 							src='/images/logo-removebg.png'
@@ -159,14 +159,14 @@ const AImessage: React.FC = () => {
 							alt='شركة كودا - تطوير البرمجيات والذكاء الاصطناعي'
 							className='h-8 w-8 md:h-16 md:w-12 mr-1'
 						/>
-						<span className='text-xl text-blue-50 md:text-2xl font-bold'>
+						<span className='text-xl text-green-50 md:text-2xl font-bold'>
 							CUDA
 						</span>
 					</div>
 					<button
 						onClick={handleToggle}
 						aria-label='إعدادات'
-						className='hover:text-blue-600 text-blue-100'>
+						className='hover:text-green-600 text-green-100'>
 						<IoIosArrowDown className='h-8 w-8 md:h-10 transition-transform duration-300 ease-in-out hover:scale-110' />
 					</button>
 				</div>
@@ -174,8 +174,8 @@ const AImessage: React.FC = () => {
 				{/* Chat Content */}
 				<div className='pb-4 space-y-4 h-96 overflow-auto custom-scrollbar bg-white transition-all duration-300 ease-in-out  '>
 					{/* Header with robot */}
-					<div className='relative bg-blue-400 text-white text-center px-7 pt-1 pb-8 text-xl overflow-hidden'>
-						<div className='flex flex-row gap-2 justify-center items-center text-blue-50 text-lg'>
+					<div className='relative bg-green-400 text-white text-center px-7 pt-1 pb-8 text-xl overflow-hidden'>
+						<div className='flex flex-row gap-2 justify-center items-center text-green-50 text-lg'>
 							CUDA AI is here to help you{' '}
 							<FaRobot className='h-10 w-10 inline mb-1' />
 						</div>
@@ -220,13 +220,13 @@ const AImessage: React.FC = () => {
 									{msg.type === 'bot' ? (
 										<div className='flex items-start space-x-2 ms-1 me-3 md:me-7'>
 											{/* أيقونة البوت */}
-											<div className='text-2xl bg-blue-400 text-white h-10 w-10 rounded-full flex justify-center items-center'>
+											<div className='text-2xl bg-green-400 text-white h-10 w-10 rounded-full flex justify-center items-center'>
 												<RiRobot2Fill />
 											</div>
 
 											{/* رسالة البوت */}
 											<div className='flex flex-col space-y-1 max-w-72'>
-												<div className='bg-blue-100 p-3 rounded-3xl rounded-tl text-blue-600 break-words'>
+												<div className='bg-green-100 p-3 rounded-3xl rounded-tl text-green-600 break-words'>
 													{isLastBotMessage ? (
 														// الرسالة الأخيرة فقط تظهر بأنيميشن
 														<TypeAnimation
@@ -240,7 +240,7 @@ const AImessage: React.FC = () => {
 														msg.text
 													)}
 												</div>
-												<div className='text-xs text-blue-300 mt-2 mx-4 self-start'>
+												<div className='text-xs text-green-300 mt-2 mx-4 self-start'>
 													CUDA {msg.time}
 												</div>
 											</div>
@@ -249,14 +249,14 @@ const AImessage: React.FC = () => {
 										// رسالة المستخدم
 										<div className='flex max-w-xs space-x-1 ms-5 md:ms-10 me-1 rounded-full'>
 											<div className='flex flex-col space-y-1 max-w-xs ms-5 md:ms-10'>
-												<div className='p-3 rounded-3xl bg-blue-400 text-white rounded-tr break-words'>
+												<div className='p-3 rounded-3xl bg-green-400 text-white rounded-tr break-words'>
 													{msg.text}
 												</div>
-												<div className='text-xs text-blue-300 mt-2 mx-4 self-end'>
+												<div className='text-xs text-green-300 mt-2 mx-4 self-end'>
 													{msg.time}
 												</div>
 											</div>
-											<div className='text-2xl mx-2 bg-blue-400 p-2 text-white rounded-full w-9 h-9 flex justify-center items-center'>
+											<div className='text-2xl mx-2 bg-green-400 p-2 text-white rounded-full w-9 h-9 flex justify-center items-center'>
 												<FaSmile />
 											</div>
 										</div>
@@ -278,7 +278,7 @@ const AImessage: React.FC = () => {
 										transition={{ duration: 0.5, ease: 'easeInOut' }}>
 										{/* الدوائر المتحركة مع تأثير الموجة */}
 										<motion.span
-											className='dot bg-blue-600 w-2 h-2 rounded-full'
+											className='dot bg-green-600 w-2 h-2 rounded-full'
 											animate={{
 												y: [0, -6, 0], // حركة لأعلى ولأسفل
 												scale: [1, 1.5, 1], // تأثير تكبير وتصغير
@@ -290,7 +290,7 @@ const AImessage: React.FC = () => {
 												delay: 0,
 											}}></motion.span>
 										<motion.span
-											className='dot bg-blue-600 w-2 h-2 rounded-full'
+											className='dot bg-green-600 w-2 h-2 rounded-full'
 											animate={{
 												y: [0, -6, 0],
 												scale: [1, 1.5, 1],
@@ -302,7 +302,7 @@ const AImessage: React.FC = () => {
 												delay: 0.2, // التأخير لإنشاء تأثير الموجة
 											}}></motion.span>
 										<motion.span
-											className='dot bg-blue-600 w-2 h-2 rounded-full'
+											className='dot bg-green-600 w-2 h-2 rounded-full'
 											animate={{
 												y: [0, -6, 0],
 												scale: [1, 1.5, 1],
@@ -323,7 +323,7 @@ const AImessage: React.FC = () => {
 				</div>
 
 				{/* Input */}
-				<div className='flex items-center p-2 bg-blue-100 rounded-b-2xl'>
+				<div className='flex items-center p-2 bg-green-100 rounded-b-2xl'>
 					<input
 						type='file'
 						ref={fileInputRef}
@@ -334,7 +334,7 @@ const AImessage: React.FC = () => {
 						onClick={handleFileClick}
 						aria-label='إعدادات'
 						className='flex items-center'>
-						<MdAttachFile className='w-7 h-7 text-blue-600 hover:scale-110 transition-transform duration-300 ease-in-out' />
+						<MdAttachFile className='w-7 h-7 text-green-600 hover:scale-110 transition-transform duration-300 ease-in-out' />
 					</button>
 					<div className='relative flex-grow'>
 						<div className='flex items-center rounded-2xl p-2'>
@@ -349,21 +349,21 @@ const AImessage: React.FC = () => {
 								value={inputValue}
 								onChange={(e) => setInputValue(e.target.value)}
 								onKeyDown={handleKeyDown}
-								className='flex-grow border-none p-3 rounded-2xl me-2 focus:outline-none text-blue-600'
+								className='flex-grow border-none p-3 rounded-2xl me-2 focus:outline-none text-green-600'
 								placeholder='Type a message...'
 							/>
 							<button
 								onClick={toggleEmojiPicker}
 								aria-label='إعدادات'
 								className='flex items-center'>
-								<MdInsertEmoticon className='w-7 h-7 text-blue-600 hover:scale-110 transition-transform duration-300 ease-in-out' />
+								<MdInsertEmoticon className='w-7 h-7 text-green-600 hover:scale-110 transition-transform duration-300 ease-in-out' />
 							</button>
 						</div>
 					</div>
 					<button
 						onClick={handleSendMessage}
 						aria-label='إعدادات'
-						className='bg-blue-500 text-white hover:text-blue-600 transition-all duration-300 ease-in-out p-2 rounded-full'>
+						className='bg-green-500 text-white hover:text-green-600 transition-all duration-300 ease-in-out p-2 rounded-full'>
 						<MdSend className='w-6 h-6' />
 					</button>
 				</div>

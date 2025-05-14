@@ -69,7 +69,7 @@ export default function Header() {
 							<Link
 								href='/sign-in'
 								target='_blank'
-								className='border-2 border-ButtonColor text-ButtonColor dark:text-white p-1 px-3 text-lg rounded-xl hover:bg-ButtonColoreffect transition'>
+								className='border-2 border-green-400 text-ButtonColor dark:text-white p-1 px-3 text-lg rounded-xl hover:bg-ButtonColoreffect transition'>
 								sign-in
 							</Link>
 						</div>

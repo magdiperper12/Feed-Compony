@@ -11,9 +11,9 @@ const config: Config = {
 			colors: {
 				Background: '#F4F4F4',
 				HeatderText: '#258a29',
-				PrimaryTextColors: '#333333',
+				PrimaryTextColors: '#258a29',
 				ButtonColor: '#2F6A4F',
-				ButtonColoreffect: '#FFB81C',
+				ButtonColoreffect: '#6DBf59',
 				LinksElements: '#6DBE45',
 				//
 				darkBackground: '#1A1A1A',

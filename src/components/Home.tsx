@@ -18,7 +18,7 @@ const HomePage = () => {
 			image: '/images/animal.png',
 			title: 'اعلاف حيونات اخري',
 			description:
-				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...',
+				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات. علف مركز بتركيبة غنية مدعم بالفيتامينات والمعادن مخصص لتسمين',
 			button: 'معرفة المزيد',
 			link: '/types/animal',
 		},
@@ -26,7 +26,7 @@ const HomePage = () => {
 			image: '/images/poultryimage.png',
 			title: 'اعلاف دواجن',
 			description:
-				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...',
+				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات.علف مركز بتركيبة غنية مدعم بالفيتامينات والمعادن مخصص لتسمين',
 			button: 'معرفة المزيد',
 			link: '/types/poultry',
 		},
@@ -34,7 +34,7 @@ const HomePage = () => {
 			image: '/images/mwashi.png',
 			title: 'اعلاف مواشي',
 			description:
-				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات...',
+				'هدفنا هو توفير حلول تكنولوجية متكاملة تساهم في تطوير الشركات.علف مركز بتركيبة غنية مدعم بالفيتامينات والمعادن مخصص لتسمين',
 			button: 'معرفة المزيد',
 			link: '/types/mwashi',
 		},
@@ -102,44 +102,46 @@ const HomePage = () => {
 					transition={{ duration: 0.8 }}>
 					شركة المتحده للاعلاف
 				</motion.h2>
-
-				{items.map((item, index) => (
-					<motion.div
-						key={index}
-						className={`mt-12 flex flex-col md:flex-row ${
-							index === 1 ? 'md:flex-row-reverse' : ''
-						} items-center gap-10`}
-						initial={{ opacity: 0, y: 30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6, delay: index * 0.2 }}>
+				<div className='space-y-28'>
+					{items.map((item, index) => (
 						<motion.div
+							key={index}
+							className={`mt-12 flex flex-col md:flex-row ${
+								index === 1 ? 'md:flex-row-reverse' : ''
+							} items-start gap-12`}
+							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: index * 0.12 }}
-							initial={{ opacity: 0, y: 60 }}>
-							<Image
-								src={item.image}
-								alt={item.title}
-								width={80}
-								height={30}
-								className='w-full md:w-1/2 h-auto object-cover'
-							/>
+							viewport={{ once: true }}
+							transition={{ duration: 0.6, delay: index * 0.2 }}>
+							<motion.div
+								whileInView={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.6, delay: index * 0.12 }}
+								initial={{ opacity: 0, y: 60 }}
+								className='w-full md:w-1/2'>
+								<Image
+									src={item.image}
+									alt={item.title}
+									width={950}
+									height={700}
+									className=' object-cover   '
+								/>
+							</motion.div>
+							<div className='w-full md:w-1/2 text-gray-700 dark:text-gray-200 md:mt-20'>
+								<h3 className='text-3xl font-bold text-PrimaryTextColors dark:text-darkPrimaryTextColors mb-4'>
+									{item.title}
+								</h3>
+								<p className='text-lg text-PrimaryTextColors dark:text-darkPrimaryTextColors leading-relaxed'>
+									{item.description}
+								</p>
+								<Link
+									href={item.link}
+									className='inline-block mt-6 px-6 py-2 bg-darkButtonColor text-white rounded-md shadow hover:bg-primary-dark transition duration-300'>
+									{item.button}
+								</Link>
+							</div>
 						</motion.div>
-						<div className='w-full md:w-1/2 text-gray-700 dark:text-gray-200'>
-							<h3 className='text-3xl font-bold text-PrimaryTextColors dark:text-darkPrimaryTextColors mb-4'>
-								{item.title}
-							</h3>
-							<p className='text-lg text-PrimaryTextColors dark:text-darkPrimaryTextColors leading-relaxed'>
-								{item.description}
-							</p>
-							<Link
-								href={item.link}
-								className='inline-block mt-6 px-6 py-2 bg-darkButtonColor text-white rounded-md shadow hover:bg-primary-dark transition duration-300'>
-								{item.button}
-							</Link>
-						</div>
-					</motion.div>
-				))}
+					))}
+				</div>
 			</section>
 			{/* Why Choose Us Section */}
 			<About />
@@ -148,6 +150,12 @@ const HomePage = () => {
 				<h2 className='text-5xl font-bold text-center'>فريق العمل</h2>
 				<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12'>
 					{[
+						{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
+						{ name: 'محمد علي', role: 'عامل بالمصنع' },
+						{ name: 'سارة محمود', role: 'عامل بالمصنع' },
+						{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
+						{ name: 'محمد علي', role: 'عامل بالمصنع' },
+						{ name: 'سارة محمود', role: 'عامل بالمصنع' },
 						{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
 						{ name: 'محمد علي', role: 'عامل بالمصنع' },
 						{ name: 'سارة محمود', role: 'عامل بالمصنع' },
