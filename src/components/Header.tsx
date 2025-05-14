@@ -40,7 +40,7 @@ export default function Header() {
 	return (
 		!login && (
 			<header className='  text-HeatderText  dark:text-darkPrimaryTextColors shadow-md fixed top-0 w-full z-40'>
-				<div className='fixed bottom-7 left-7 bg-ButtonColor text-white px-4 py-2 rounded-2xl text-2xl hover:bg-ButtonColoreffect transition'>
+				<div className='fixed bottom-7 left-7 bg-darkButtonColor text-white px-4 py-2 rounded-2xl text-2xl hover:bg-ButtonColoreffect transition'>
 					<Link href='/admin'>admin</Link>
 				</div>
 
