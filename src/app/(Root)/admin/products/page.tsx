@@ -1,76 +1,129 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import AddProduct from './Add';
-import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-interface Product {
-	id: number;
-	title: string;
-	price: number;
-	description: string;
-	image: string;
-	category: string;
-}
+export default function AddProduct() {
+	const [formData, setFormData] = useState({
+		title: '',
+		price: '',
+		description: '',
+		image: '',
+		category: '',
+	});
+	const [imageFile, setImageFile] = useState<File | null>(null);
 
-export default function ProductsPage() {
-	const [products, setProducts] = useState<Product[]>([]);
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		setFormData({ ...formData, [e.target.name]: e.target.value });
+	};
 
-	useEffect(() => {
-		fetch('https://fakestoreapi.com/products')
-			.then((res) => res.json())
-			.then((json) => setProducts(json));
-	}, []);
+	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const file = e.target.files?.[0];
+		if (file) {
+			setImageFile(file);
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				setFormData((prev) => ({
+					...prev,
+					image: reader.result as string, // Base64 string
+				}));
+			};
+			reader.readAsDataURL(file);
+		}
+	};
+
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+
+		const existingProducts = JSON.parse(
+			localStorage.getItem('products') || '[]'
+		);
+		const newProduct = {
+			...formData,
+			id: Date.now(),
+			price: parseFloat(formData.price),
+		};
+		localStorage.setItem(
+			'products',
+			JSON.stringify([...existingProducts, newProduct])
+		);
+
+		alert('✅ تم حفظ المنتج بنجاح!');
+		setFormData({
+			title: '',
+			price: '',
+			description: '',
+			image: '',
+			category: '',
+		});
+	};
 
 	return (
-		<div className='p-6 bg-Background dark:bg-darkBackground'>
-			<h1 className='text-2xl font-bold mb-4 text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
-				المنتجات
-			</h1>
-			{/* Product Cards Layout */}
-			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-				{products.map((product) => (
-					<div
-						key={product.id}
-						className='bg-white dark:bg-[#2F2F2F] shadow-lg rounded-lg overflow-hidden border border-gray-200 dark:border-darkButtonColor'>
-						{/* Product Image */}
-						<div className='relative'>
-							<Image
-								src={product.image}
-								alt={product.title}
-								width={80}
-								height={30}
-								className='w-full h-48 object-cover'
-							/>
-							<div className='absolute top-2 left-2 bg-blue-600 text-white px-2 py-1 text-sm rounded'>
-								{product.category}
-							</div>
-						</div>
-						{/* Product Info */}
-						<div className='p-4'>
-							<h2 className='text-lg font-semibold text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
-								{product.title}
-							</h2>
-							<p className='text-gray-600 dark:text-[#CCCCCC] text-sm mt-2'>
-								{product.description}
-							</p>
-							<div className='mt-4 flex justify-between items-center'>
-								<span className='text-xl font-bold text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
-									{product.price} $
-								</span>
-								<button className='bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition dark:bg-darkButtonColor dark:hover:bg-[#FFD366]'>
-									عرض التفاصيل
-								</button>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-
-			{/* Add Product Section */}
-			<div className='min-h-screen p-5'>
-				<AddProduct />
-			</div>
+		<div className='p-6 max-w-xl mx-auto bg-Background dark:bg-darkBackground'>
+			<h2 className='text-2xl font-bold mb-4 text-PrimaryTextColors dark:text-darkPrimaryTextColors'>
+				إضافة منتج
+			</h2>
+			<form
+				onSubmit={handleSubmit}
+				className='space-y-4'>
+				<input
+					name='title'
+					value={formData.title}
+					onChange={handleChange}
+					placeholder='اسم المنتج'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
+				/>
+				<input
+					name='price'
+					value={formData.price}
+					onChange={handleChange}
+					placeholder='السعر'
+					type='number'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
+				/>
+				<textarea
+					name='description'
+					value={formData.description}
+					onChange={handleChange}
+					placeholder='الوصف'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
+				/>
+				<input
+					name='category'
+					value={formData.category}
+					onChange={handleChange}
+					placeholder='الفئة'
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
+				/>
+				<input
+					type='file'
+					accept='image/*'
+					onChange={handleImageChange}
+					className='w-full p-2 border rounded text-PrimaryTextColors dark:text-darkPrimaryTextColors dark:bg-darkButtonColor dark:border-darkButtonColor'
+				/>
+				{formData.image && (
+					<img
+						src={formData.image}
+						alt='صورة المنتج'
+						className='w-32 h-32 object-cover mt-2 rounded'
+					/>
+				)}
+				<div className='flex justify-end items-center gap-5'>
+					<button
+						type='submit'
+						className='bg-ButtonColor text-white px-4 py-2 rounded hover:bg-ButtonColoreffect dark:bg-darkButtonColor dark:hover:bg-[#FFD366]'>
+						إرسال
+					</button>
+					<Link
+						href={'/admin/products/out'}
+						type='submit'
+						className='bg-ButtonColor text-white px-4 py-2 rounded hover:bg-ButtonColoreffect dark:bg-darkButtonColor dark:hover:bg-[#FFD366]'>
+						OutPut
+					</Link>
+				</div>
+			</form>
 		</div>
 	);
 }

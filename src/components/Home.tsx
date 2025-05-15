@@ -2,17 +2,52 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 import About from './About';
 import Products from './products';
 
-interface items {
-	image: string;
-	title: string;
-	description: string;
-	button: string;
-	link: string;
-}
+const employee = [
+	{
+		name: 'أحمد محمد',
+		role: 'عامل بالمصنع',
+		image: '/images/man.jpg',
+	},
+	{
+		name: 'محمد علي',
+		role: 'عامل بالمصنع',
+		image: '/images/hand.jpg',
+	},
+	{
+		name: 'سارة محمود',
+		role: 'عامل بالمصنع',
+		image: '/images/hand.jpg',
+	},
+	{
+		name: 'أحمد محمد',
+		role: 'عامل بالمصنع',
+		image: '/images/man.jpg',
+	},
+	{
+		name: 'محمد علي',
+		role: 'عامل بالمصنع',
+		image: '/images/doctor.jpg',
+	},
+	{
+		name: 'سارة محمود',
+		role: 'عامل بالمصنع',
+		image: '/images/number 1.jpg',
+	},
+	{
+		name: 'أحمد محمد',
+		role: 'عامل بالمصنع',
+		image: '/images/cirtificate.png',
+	},
+	{
+		name: 'أحمد محمد',
+		role: 'عامل بالمصنع',
+		image: '/images/man.jpg',
+	},
+];
 const HomePage = () => {
 	return (
 		<motion.div
@@ -68,39 +103,28 @@ const HomePage = () => {
 					</motion.div>
 				</div>
 			</section>
-			{/* Company Product Section */}
 			<Products />
-			{/* Why Choose Us Section */}
 			<About />
-			{/* Team Section */}{' '}
-			<section className='container mx-auto px-6 pb-20'>
-				<h2 className='text-5xl font-bold text-center'>فريق العمل</h2>
-				<div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12'>
-					{[
-						{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
-						{ name: 'محمد علي', role: 'عامل بالمصنع' },
-						{ name: 'سارة محمود', role: 'عامل بالمصنع' },
-						{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
-						{ name: 'محمد علي', role: 'عامل بالمصنع' },
-						{ name: 'سارة محمود', role: 'عامل بالمصنع' },
-						{ name: 'أحمد محمد', role: 'عامل بالمصنع' },
-					].map(({ name, role }, index) => (
+			<section className='container mx-auto  pb-20 max-w-7xl px-4'>
+				<h2 className='text-5xl font-bold text-center py-6'>فريق العمل</h2>
+				<div className='mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 gap-y-8 md:gap-y-12 md:gap-7 xl:gap-10'>
+					{employee.map((item, index) => (
 						<div
 							key={index}
-							className='text-center flex flex-col justify-center items-center'>
-							<div className=' w-44 h-44  rounded-full overflow-hidden'>
+							className='text-center flex flex-col justify-center items-center '>
+							<div className='w-28 h-28  md:w-32 md:h-32  lg:w-36 lg:h-36 xl:w-44 xl:h-44  rounded-full overflow-hidden'>
 								{' '}
 								<Image
-									src='/images/man.jpg'
+									src={item.image}
 									alt={`فريق العمل ${index + 1}`}
-									width={150}
-									height={150}
-									className='object-cover size-52'
+									width={110}
+									height={110}
+									className='object-cover size-44'
 								/>
 							</div>
 
-							<h3 className='mt-4 font-semibold'>{name}</h3>
-							<p>{role}</p>
+							<h3 className='mt-4 font-semibold'>{item.name}</h3>
+							<p>{item.role}</p>
 						</div>
 					))}
 				</div>

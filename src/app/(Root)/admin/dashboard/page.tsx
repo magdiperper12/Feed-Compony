@@ -14,14 +14,14 @@ export default function DashboardPage() {
 	return (
 		<div className='p-6 space-y-8 bg-white dark:bg-darkBackground rounded-xl shadow-md'>
 			<motion.h1
-				className='text-3xl font-extrabold text-gray-800 dark:text-darkPrimaryTextColors'
+				className='text-3xl font-extrabold text-green-600 dark:text-darkPrimaryTextColors'
 				initial={{ opacity: 0, y: -10 }}
 				animate={{ opacity: 1, y: 0 }}>
 				مرحبًا بك في لوحة التحكم 🐓
 			</motion.h1>
 
 			{/* الإحصائيات السريعة */}
-			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
 				<StatCard
 					title='إجمالي المنتجات'
 					value='24'

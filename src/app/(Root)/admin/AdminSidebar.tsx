@@ -32,7 +32,7 @@ export default function AdminSidebar() {
 				className={`absolute md:relative h-80 md:h-screen w-full md:w-64 pt-20  dark:text-white md:pt-3 bg-white dark:bg-darkBackground shadow-md p-4 ${
 					isSidebarVisible ? 'block' : 'hidden'
 				} md:block`}>
-				<h2 className='text-2xl font-bold text-center mb-6 pt-2 text-gray-800 dark:text-white '>
+				<h2 className='text-2xl font-bold text-center mb-6 pt-2 text-green-600 dark:text-white '>
 					لوحة التحكم
 				</h2>
 				<nav className='flex flex-col gap-2'>
