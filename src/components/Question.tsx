@@ -1,37 +1,28 @@
 const Question: { question: string; answer: string }[] = [
 	{
-		question: 'What is your name?',
-		answer: 'We are Cuda.',
+		question: 'ما أنواع الأعلاف التي تنتجونها؟',
+		answer:
+			'ننتج أعلاف متكاملة ومتوازنة للدواجن، الأبقار، الأغنام، والأسماك، وفق أعلى معايير الجودة لضمان أفضل أداء ونمو صحي.',
 	},
 	{
-		question: 'What do you do?',
+		question: 'هل الأعلاف تحتوي على إضافات أو منشطات؟',
 		answer:
-			'Cuda specializes in building websites, mobile applications, and AI-powered solutions.',
+			'نستخدم فقط إضافات غذائية مسموح بها ومعتمدة من الهيئات البيطرية لضمان السلامة الحيوانية، ولا نستخدم أي منشطات هرمونية.',
 	},
 	{
-		question: 'How can you help my business?',
+		question: 'هل تقدمون تركيبات خاصة حسب طلب العميل؟',
 		answer:
-			'We can design and develop custom digital products to enhance your online presence and automate your workflow using AI.',
+			'نعم، نوفر تركيبات مخصصة حسب نوع الحيوان وعمره واحتياجاته، ويمكن تعديل المكونات بما يتناسب مع ظروف التربية أو المناخ.',
 	},
 	{
-		question: 'Do you offer full-stack development?',
+		question: 'ما يميز أعلافكم عن المنافسين؟',
 		answer:
-			'Yes, our team handles both frontend and backend development for web and mobile platforms.',
+			'نعتمد على مواد خام عالية الجودة، وإشراف فني بيطري متخصص، وخطوط إنتاج أوتوماتيكية تضمن دقة الخلط والتعبئة، مما ينعكس على أداء الحيوانات وزيادة العائد للمربي.',
 	},
 	{
-		question: 'What industries do you work with?',
+		question: 'هل توفرون خدمات توصيل للمزارع؟',
 		answer:
-			'We work with a variety of industries including e-commerce, healthcare, finance, education, and more.',
-	},
-	{
-		question: 'Can you integrate AI into my app?',
-		answer:
-			'Absolutely! We can integrate features like chatbots, recommendation systems, and predictive analytics into your application.',
-	},
-	{
-		question: 'Where are you based?',
-		answer:
-			'Cuda operates remotely with a global team of developers and designers.',
+			'نعم، نوفر خدمة توصيل سريعة وآمنة إلى مختلف المحافظات، مع إمكانية جدولة الشحنات حسب احتياجات المزرعة لضمان الاستمرارية في التغذية.',
 	},
 ];
 

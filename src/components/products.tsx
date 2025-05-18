@@ -72,6 +72,7 @@ const Products = () => {
 						</motion.div>
 						<div className='w-full md:w-1/2 text-gray-700 dark:text-gray-200 md:mt-20'>
 							<h3 className='text-3xl font-bold text-PrimaryTextColors dark:text-darkPrimaryTextColors mb-4'>
+								<span className='bg-green-500  p-1 m-3 me-0'></span>
 								{item.title}
 							</h3>
 							<p className='text-lg  dark:text-darkPrimaryTextColors leading-relaxed'>

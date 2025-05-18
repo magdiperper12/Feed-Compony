@@ -10,6 +10,7 @@ import { TypeAnimation } from 'react-type-animation';
 import Question from './Question';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { div } from 'framer-motion/client';
 
 const AImessage: React.FC = () => {
 	const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -113,16 +114,33 @@ const AImessage: React.FC = () => {
 		}, 2000);
 	};
 
-	const renderQuestionButtons = () =>
-		Question.map((item, index) => (
-			<button
-				key={index}
-				onClick={() => handleQuestionClick(item.question)}
-				aria-label='إعدادات'
-				className='border-2 border-green-500 p-2 w-3/4 hover:bg-green-200 rounded-lg hover:text-white transition-all duration-150 hover:border-green-500'>
-				{item.question}
-			</button>
-		));
+	const renderQuestionButtons = () => {
+		const [showQuestions, setShowQuestions] = useState(false);
+		return (
+			<div className='m-auto text-center w-full'>
+				<button
+					onClick={() => setShowQuestions(!showQuestions)}
+					className='mb-4 p-2 border-green-500 border-2 text-green-600 rounded-xl hover:bg-green-500 hover:text-white transition-all'>
+					{showQuestions ? 'إخفاء' : 'اسالني'}
+				</button>
+				<div className='m-auto '>
+					{showQuestions && (
+						<div className='flex  flex-col gap-2'>
+							{Question.map((item, index) => (
+								<button
+									key={index}
+									onClick={() => handleQuestionClick(item.question)}
+									aria-label='إعدادات'
+									className='border-2 border-green-500 p-2 w-3/4 m-auto hover:bg-green-50 rounded-lg hover:text-black transition-all duration-150 hover:border-green-500'>
+									{item.question}
+								</button>
+							))}
+						</div>
+					)}
+				</div>
+			</div>
+		);
+	};
 
 	return (
 		<div className=''>
@@ -157,11 +175,8 @@ const AImessage: React.FC = () => {
 							width={64}
 							height={38}
 							alt='شركة كودا - تطوير البرمجيات والذكاء الاصطناعي'
-							className='h-8 w-8 md:h-16 md:w-12 mr-1'
+							className='h-8 w-12 md:h-14 md:w-20 mr-1'
 						/>
-						<span className='text-xl text-green-50 md:text-2xl font-bold'>
-							CUDA
-						</span>
 					</div>
 					<button
 						onClick={handleToggle}
@@ -176,7 +191,7 @@ const AImessage: React.FC = () => {
 					{/* Header with robot */}
 					<div className='relative bg-green-400 text-white text-center px-7 pt-1 pb-8 text-xl overflow-hidden'>
 						<div className='flex flex-row gap-2 justify-center items-center text-green-50 text-lg'>
-							CUDA AI is here to help you{' '}
+							UFP هنا لمساعدتك
 							<FaRobot className='h-10 w-10 inline mb-1' />
 						</div>
 						<div className='absolute inset-x-0 bottom-0 h-16'>
@@ -193,7 +208,7 @@ const AImessage: React.FC = () => {
 					</div>
 
 					{/* Questions & Answers */}
-					<div className='m-auto text-center text-lg space-y-3 text-gray-700'>
+					<div className='m-auto text-center text-lg space-y-3 text-green-900 '>
 						{!selectedQuestion ? (
 							renderQuestionButtons()
 						) : (
@@ -225,7 +240,7 @@ const AImessage: React.FC = () => {
 											</div>
 
 											{/* رسالة البوت */}
-											<div className='flex flex-col space-y-1 max-w-72'>
+											<div className='flex flex-col space-y-1 max-w-60 md:max-w-72'>
 												<div className='bg-green-100 p-3 rounded-3xl rounded-tl text-green-600 break-words'>
 													{isLastBotMessage ? (
 														// الرسالة الأخيرة فقط تظهر بأنيميشن

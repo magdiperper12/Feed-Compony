@@ -24,7 +24,7 @@ const AboutPoultryFeedPage = () => {
 	];
 	return (
 		<motion.div
-			className='bg-gray-100 min-h-screen  py-28 '
+			className='bg-gray-100 dark:bg-black min-h-screen  py-28 '
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}>
@@ -48,14 +48,14 @@ const AboutPoultryFeedPage = () => {
 
 				{/* Contact Section */}
 				<motion.div
-					className='bg-white p-8 shadow-lg rounded-lg '
+					className='bg-white dark:bg-green-950 p-8 shadow-lg rounded-lg '
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.6 }}>
-					<button className='text-3xl font-semibold text-darkButtonColor mb-6'>
+					<button className='text-3xl font-semibold text-darkButtonColor dark:text-green-400 mb-6'>
 						تواصل معنا
 					</button>
-					<p className='text-lg text-gray-700 mb-4'>
+					<p className='text-lg text-gray-700 dark:text-gray-200 mb-4'>
 						إذا كنت مهتمًا بمزيد من المعلومات حول أعلاف الدواجن أو ترغب في شراء
 						منتجنا، لا تتردد في الاتصال بنا.
 					</p>

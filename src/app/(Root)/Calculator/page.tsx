@@ -51,13 +51,13 @@ const FeedCalculator = () => {
 			<div className='max-w-4xl mx-auto px-6'>
 				<div className='text-center mb-10'>
 					<Image
-						src='/images/animal2.png'
+						src={`/images/animal2.png`}
 						alt='Feed Calculator Logo'
 						width={250}
 						height={80}
 						className='mx-auto'
 					/>
-					<h1 className='text-4xl font-bold mt-6 text-darkButtonColor dark:text-darkPrimaryTextColors'>
+					<h1 className='text-4xl font-bold mt-6 text-darkButtonColor dark:text-darkButtonColor'>
 						حاسبة أعلاف المتحدة
 					</h1>
 					<p className='text-lg text-gray-700 dark:text-gray-300 mt-4 max-w-2xl mx-auto'>
@@ -74,13 +74,13 @@ const FeedCalculator = () => {
 					<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 						{/* نوع الحيوان */}
 						<div>
-							<label className='block text-gray-800 dark:text-darkPrimaryTextColors text-lg font-medium'>
+							<label className='block text-gray-800 dark:text-darkButtonColor  text-lg font-medium'>
 								نوع الحيوان
 							</label>
 							<select
 								value={animalType}
 								onChange={(e) => setAnimalType(e.target.value as AnimalType)}
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-gray-800 dark:text-darkPrimaryTextColors'>
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-gray-800 dark:text-darkButtonColor '>
 								<option value=''>اختر نوع الحيوان</option>
 								<option value='Poultry'>دواجن</option>
 								<option value='Cattle'>أبقار</option>
@@ -90,14 +90,14 @@ const FeedCalculator = () => {
 
 						{/* عدد الأيام */}
 						<div>
-							<label className='block text-gray-800 dark:text-darkPrimaryTextColors text-lg font-medium'>
+							<label className='block text-gray-800 dark:text-darkButtonColor  text-lg font-medium'>
 								عدد الأيام
 							</label>
 							<div className='flex mt-2'>
 								<button
 									type='button'
 									onClick={() => setDaysCount((prev) => Math.max(prev - 1, 0))}
-									className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-l-md'>
+									className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 dark:text-darkButtonColor rounded-l-md'>
 									-
 								</button>
 								<input
@@ -109,7 +109,7 @@ const FeedCalculator = () => {
 								<button
 									type='button'
 									onClick={() => setDaysCount((prev) => prev + 1)}
-									className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-r-md'>
+									className='px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 dark:text-darkButtonColor rounded-r-md'>
 									+
 								</button>
 							</div>
@@ -117,12 +117,12 @@ const FeedCalculator = () => {
 
 						{/* عدد الحيوانات */}
 						<div>
-							<label className='block text-gray-800 dark:text-darkPrimaryTextColors text-lg font-medium'>
+							<label className='block text-gray-800 dark:text-darkButtonColor  text-lg font-medium'>
 								عدد الحيوانات
 							</label>
 							<input
 								type='number'
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-gray-800 dark:text-darkPrimaryTextColors'
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-gray-800 dark:text-darkButtonColor '
 								value={animalsCount}
 								onChange={(e) => setAnimalsCount(Number(e.target.value))}
 							/>
@@ -130,12 +130,12 @@ const FeedCalculator = () => {
 
 						{/* الوزن لكل حيوان */}
 						<div>
-							<label className='block text-gray-800 dark:text-darkPrimaryTextColors text-lg font-medium'>
+							<label className='block text-gray-800 dark:text-darkButtonColor  text-lg font-medium'>
 								وزن الحيوان الواحد (كجم)
 							</label>
 							<input
 								type='number'
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-gray-800 dark:text-darkPrimaryTextColors'
+								className='w-full p-3 mt-2 border border-gray-300 rounded-md bg-white dark:bg-[#333] text-gray-800 dark:text-darkButtonColor '
 								value={weightPerAnimal}
 								onChange={(e) => setWeightPerAnimal(Number(e.target.value))}
 							/>
@@ -145,7 +145,7 @@ const FeedCalculator = () => {
 						<div className='col-span-2'>
 							<button
 								onClick={calculateFeed}
-								className='w-full p-3 text-white text-lg rounded-md mt-4 bg-darkButtonColor hover:bg-ButtonColoreffect dark:bg-darkButtonColor dark:hover:bg-[#FFD366] transition-colors'>
+								className='w-full p-3 text-white  text-lg rounded-md mt-4 bg-darkButtonColor hover:bg-ButtonColoreffect dark:bg-darkButtonColor dark:hover:bg-[#FFD366] transition-colors'>
 								احسب كمية العلف المطلوبة
 							</button>
 						</div>
@@ -159,7 +159,7 @@ const FeedCalculator = () => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.4 }}>
-						<h2 className='text-2xl font-semibold text-gray-800 dark:text-darkPrimaryTextColors mb-4'>
+						<h2 className='text-2xl font-semibold text-gray-800 dark:text-darkButtonColor  mb-4'>
 							النتيجة
 						</h2>
 						<p className='text-lg text-gray-700 dark:text-gray-300'>

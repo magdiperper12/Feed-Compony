@@ -60,7 +60,7 @@ export default function Header() {
 								width={80}
 								height={30}
 								decoding='async'
-								className='w-[80px] h-[30px]'
+								className='h-10 w-14  md:h-14 md:w-20'
 							/>
 						</Link>
 
@@ -69,7 +69,7 @@ export default function Header() {
 							<Link
 								href='/sign-in'
 								target='_blank'
-								className='border-2 border-green-400 hover:text-white text-ButtonColor dark:text-white p-1 px-3 text-lg rounded-xl hover:bg-ButtonColoreffect transition'>
+								className='border-2 border-green-400 outline-none hover:text-white text-ButtonColor dark:text-white p-1 px-3 text-lg rounded-xl hover:bg-ButtonColoreffect transition'>
 								sign-in
 							</Link>
 						</div>
