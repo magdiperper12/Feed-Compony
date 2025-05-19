@@ -75,7 +75,7 @@ export default function DashboardPage() {
 
 const StatCard = ({ title, value }: { title: string; value: string }) => (
 	<motion.div
-		className='bg-green-50 dark:bg-green-700 p-4 rounded-xl shadow hover:shadow-lg transition'
+		className='bg-green-50 dark:bg-gray-800 p-4 rounded-xl shadow hover:shadow-lg transition'
 		whileHover={{ scale: 1.03 }}>
 		<p className='text-sm text-gray-500 dark:text-darkPrimaryTextColors'>
 			{title}

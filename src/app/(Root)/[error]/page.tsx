@@ -24,8 +24,8 @@ const NotFoundPage: React.FC = () => {
 				<motion.h1
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 0.4, duration: 0.5 }}
-					className='mt-4 text-5xl font-semibold tracking-tight text-balance text-yellow-900 '>
+					transition={{ delay: 0.2, duration: 0.2 }}
+					className='mt-4 text-5xl font-semibold tracking-tight text-balance text-yellow-600 '>
 					Page not found
 				</motion.h1>
 				<motion.p

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaList, FaTimes } from 'react-icons/fa';
+import { FaList, FaTimes, FaWhatsapp } from 'react-icons/fa';
 import Image from 'next/image';
 import AImessage from './ChatBot';
 import Dark from './theme/Dark';
@@ -44,7 +44,15 @@ export default function Header() {
 					<Link href='/admin'>admin</Link>
 				</div>
 
-				<div className='fixed bottom-7 right-7'>
+				<div className='fixed flex justify-center items-center gap-1 flex-col bottom-7 right-7'>
+					<a
+						href='https://api.whatsapp.com/send?phone=201000000000&text=مرحبا'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='text-6xl md:text-7xl cursor-pointer text-green-700'>
+						<FaWhatsapp className=' text-6xl md:text-7xl cursor-pointer text-green-700 ' />
+					</a>
+
 					<AImessage />
 				</div>
 

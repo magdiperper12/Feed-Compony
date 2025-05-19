@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const ContactPage = () => {
 	return (
 		<motion.div
-			className='bg-Background dark:bg-darkBackground min-h-screen py-12'
+			className='bg-Background dark:bg-darkBackground min-h-screen py-12 mt-16'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}>
@@ -29,7 +29,7 @@ const ContactPage = () => {
 							<input
 								id='name'
 								type='text'
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md dark:bg-[#333] dark:text-white'
+								className='w-full p-3 outline-none  mt-2 border border-gray-300 rounded-md dark:bg-[#333] dark:text-white'
 								placeholder='أدخل اسمك'
 							/>
 						</div>
@@ -43,7 +43,7 @@ const ContactPage = () => {
 							<input
 								id='email'
 								type='email'
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md dark:bg-[#333] dark:text-white'
+								className='w-full outline-none  p-3 mt-2 border border-gray-300 rounded-md dark:bg-[#333] dark:text-white'
 								placeholder='أدخل بريدك الإلكتروني'
 							/>
 						</div>
@@ -57,16 +57,17 @@ const ContactPage = () => {
 							<textarea
 								id='message'
 								rows={4}
-								className='w-full p-3 mt-2 border border-gray-300 rounded-md dark:bg-[#333] dark:text-white'
+								className='w-full outline-none  p-3 mt-2 border border-gray-300 rounded-md dark:bg-[#333] dark:text-white'
 								placeholder='أدخل رسالتك هنا'
 							/>
 						</div>
-
-						<button
-							type='submit'
-							className='w-full bg-ButtonColor dark:bg-ButtonColoreffect text-white py-3 mt-6 rounded-md hover:bg-ButtonColoreffect dark:hover:bg-[#FFD366] transition-colors'>
-							إرسال
-						</button>
+						<div className='w-full flex justify-center items-center '>
+							<button
+								type='submit'
+								className='w-2/3 md:2/6 bg-ButtonColor dark:bg-ButtonColoreffect text-white py-3 mt-6 rounded-md hover:bg-ButtonColoreffect dark:hover:bg-[#FFD366] transition-colors'>
+								إرسال
+							</button>
+						</div>
 					</form>
 				</motion.div>
 
@@ -88,7 +89,7 @@ const ContactPage = () => {
 								<strong>البريد الإلكتروني:</strong> info@example.com
 							</li>
 							<li>
-								<strong>العنوان:</strong> الرياض، المملكة العربية السعودية
+								<strong>العنوان:</strong> كفرالشيخ, مصر
 							</li>
 						</ul>
 					</div>
@@ -101,7 +102,7 @@ const ContactPage = () => {
 						<div className='w-full h-64 bg-gray-200 dark:bg-gray-700 rounded-lg'>
 							<iframe
 								className='w-full h-full rounded-lg'
-								src='https://www.google.com/maps/embed/v1/place?q=place_id:ChIJCwF2fJYFxz4RbtxjJxJ_kik&key=YOUR_API_KEY'
+								src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110645.18395700744!2d30.91117175!3d31.1069631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79f424c8d37ff%3A0x7a7b7b292dd2f9c3!2z2YXYs9in2YUg2KfZhNi52KjYqCDZhNmE2YXZitin2YTZgSDYp9mE2LPYqNmK2KfYqiDYp9mE2KjZitmE2YrYqQ!5e0!3m2!1sar!2seg!4v1713607470025!5m2!1sar!2seg'
 								allowFullScreen
 								loading='lazy'></iframe>
 						</div>

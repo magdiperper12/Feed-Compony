@@ -40,3 +40,6 @@ next-env.d.ts
 Historic/
 history-app/
 .env.local
+
+
+package-lock.json
