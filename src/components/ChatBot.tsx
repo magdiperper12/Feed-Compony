@@ -131,7 +131,7 @@ const AImessage: React.FC = () => {
 									key={index}
 									onClick={() => handleQuestionClick(item.question)}
 									aria-label='إعدادات'
-									className='border-2 border-green-500 p-2 w-3/4 m-auto hover:bg-green-50 rounded-lg hover:text-black transition-all duration-150 hover:border-green-500'>
+									className='border-2 border-green-500 p-2 w-10/12 md:w-3/4 m-auto hover:bg-green-50 rounded-lg hover:text-black transition-all duration-150 hover:border-green-500'>
 									{item.question}
 								</button>
 							))}
@@ -146,7 +146,7 @@ const AImessage: React.FC = () => {
 		<div className=''>
 			<div className='group relative m-2 flex justify-center items-center'>
 				<div
-					className={`bg-gray-100 text-white border-2 border-green-300 rounded-full h-12 w-12 md:h-16 md:w-16 cursor-pointer shadow-lg shadow-green-300 dark:shadow-green-600 flex justify-center items-center z-50 transition-transform duration-300 ease-in-out ${
+					className={`bg-gray-100 text-white border-2 border-green-300 rounded-full h-14 w-14 md:h-16 md:w-16 cursor-pointer shadow-lg shadow-green-300 dark:shadow-green-600 flex justify-center items-center z-50 transition-transform duration-300 ease-in-out ${
 						isVisible ? 'opacity-0' : 'opacity-100'
 					}`}
 					onClick={handleToggle}>
@@ -162,34 +162,34 @@ const AImessage: React.FC = () => {
 
 			{/* Chat Box */}
 			<div
-				className={`z-50 transition-transform  duration-500 ease-in-out w-10/12 md:w-96 shadow-custom shadow-green-200 rounded-2xl fixed ${
+				className={`z-50 bg-white transition-transform  duration-500 ease-in-out w-11/12 md:w-96 shadow-custom shadow-green-200 rounded-2xl fixed ${
 					isVisible
-						? 'bottom-10 end-8 md:bottom-20 md:end-8 lg:bottom-24 lg:end-10 xl:bottom-16 translate-y-0 opacity-100'
+						? 'bottom-10 end-4 md:bottom-20 md:end-8 lg:bottom-24 lg:end-10 xl:bottom-16 translate-y-0 opacity-100'
 						: 'bottom-8 md:end-8 md:bottom-12 translate-y-full opacity-0 pointer-events-none'
 				}`}>
 				{/* Header */}
-				<div className='bg-green-500 text-white px-7 py-6 md:py-4  flex justify-between items-center rounded-t-2xl'>
+				<div className='bg-green-500 text-white px-7 py-7 md:py-5  flex justify-between items-center rounded-t-2xl'>
 					<div className='flex items-center'>
 						<Image
 							src='/images/logo-removebg.png'
 							width={64}
 							height={38}
 							alt='شركة كودا - تطوير البرمجيات والذكاء الاصطناعي'
-							className='h-8 w-12 md:h-14 md:w-20 mr-1'
+							className='h-10 w-16 md:h-14 md:w-20 mr-1'
 						/>
 					</div>
 					<button
 						onClick={handleToggle}
 						aria-label='إعدادات'
 						className='hover:text-green-600 text-green-100'>
-						<IoIosArrowDown className='h-8 w-8 md:h-10 transition-transform duration-300 ease-in-out hover:scale-110' />
+						<IoIosArrowDown className='h-10 w-10 md:h-10 transition-transform duration-300 ease-in-out hover:scale-110' />
 					</button>
 				</div>
 
 				{/* Chat Content */}
-				<div className='pb-4 space-y-4 h-96 overflow-auto custom-scrollbar bg-white transition-all duration-300 ease-in-out  '>
+				<div className='pb-4 space-y-4 h-[55vh]  md:h-96 overflow-auto custom-scrollbar bg-white transition-all duration-300 ease-in-out  '>
 					{/* Header with robot */}
-					<div className='relative bg-green-400 text-white text-center px-7 pt-1 pb-8 text-xl overflow-hidden'>
+					<div className='relative  bg-green-400 text-white text-center px-7 pt-1 pb-8 text-xl overflow-hidden'>
 						<div className='flex flex-row gap-2 justify-center items-center text-green-50 text-lg'>
 							UFP هنا لمساعدتك
 							<FaRobot className='h-10 w-10 inline mb-1' />
