@@ -10,12 +10,11 @@ import { TypeAnimation } from 'react-type-animation';
 import Question from './Question';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { div } from 'framer-motion/client';
 
 const AImessage: React.FC = () => {
 	const fileInputRef = useRef<HTMLInputElement | null>(null);
 	const inputRef = useRef<HTMLInputElement | null>(null);
-	const [inputValue, setInputValue] = useState('');
+	const [inputValue, setInputValue] = useState('السلام عليكم، كيف حالك 😍 ؟');
 	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 	const [messages, setMessages] = useState<
 		{ text: string; type: string; time: string }[]
@@ -23,50 +22,17 @@ const AImessage: React.FC = () => {
 	const [isTyping, setIsTyping] = useState(false);
 	const chatEndRef = useRef<HTMLDivElement | null>(null);
 	const [isVisible, setIsVisible] = useState(false);
-	const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
-	const [time, setTime] = useState('');
 
 	const handleToggle = () => {
 		const audio = new Audio('/audio/Select.mp3');
 		audio.play();
 		setIsVisible(!isVisible);
 	};
-
 	const handleFileClick = () => fileInputRef.current?.click();
-
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
 		if (file) setInputValue((prev) => `${prev} ${file.name}`);
 	};
-
-	const handleSendMessage = () => {
-		if (inputValue.trim()) {
-			const currentTime = new Date().toLocaleTimeString([], {
-				hour: '2-digit',
-				minute: '2-digit',
-			});
-			const newUserMessage = {
-				text: inputValue,
-				type: 'user',
-				time: currentTime,
-			};
-			setMessages((prev) => [...prev, newUserMessage]);
-			setInputValue('');
-			setIsTyping(true);
-			setTimeout(() => {
-				const botReply =
-					'This is an automatic response. How can I assist you further?';
-				const audio = new Audio('/audio/open-chat.mp3');
-				audio.play();
-				setIsTyping(false);
-				setMessages((prev) => [
-					...prev,
-					{ text: botReply, type: 'bot', time: currentTime },
-				]);
-			}, 1500);
-		}
-	};
-
 	useEffect(() => {
 		chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
 	}, [messages, isTyping]);
@@ -74,72 +40,70 @@ const AImessage: React.FC = () => {
 	useEffect(() => {
 		inputRef.current?.focus();
 	}, []);
-
 	const handleEmojiClick = (emoji: { emoji: string }) => {
 		setInputValue((prev) => prev + emoji.emoji);
 		setShowEmojiPicker(false);
 	};
-
 	const toggleEmojiPicker = () =>
 		setTimeout(() => setShowEmojiPicker((prev) => !prev), 100);
-
 	const handleKeyDown = (e: React.KeyboardEvent) => {
 		if (e.key === 'Enter') handleSendMessage();
 	};
 
-	const handleQuestionClick = (question: string) => {
-		setSelectedQuestion(question);
+	const handleSearch = (keyword: string) => {
 		const currentTime = new Date().toLocaleTimeString([], {
 			hour: '2-digit',
 			minute: '2-digit',
 		});
+		const lowerKeyword = keyword.toLowerCase();
+
+		// نكسر السؤال لكلمات ونبحث عن أي وحدة منهم
+		const keywordWords = lowerKeyword.split(' ');
+
+		const found = Question.find((item) => {
+			const questionText = item.question.toLowerCase();
+			const answerText = item.answer.toLowerCase();
+
+			// نشوف إذا أي كلمة من المستخدم موجودة في السؤال أو الجواب
+			return keywordWords.some(
+				(word) => questionText.includes(word) || answerText.includes(word)
+			);
+		});
+
 		const audio = new Audio('/audio/open-chat.mp3');
 		audio.play();
 
-		// إضافة رسالة المستخدم
-		const userMsg = { text: question, type: 'user', time: currentTime };
-		setMessages((prev) => [...prev, userMsg]);
-		setTime(currentTime);
+		setMessages((prev) => [
+			...prev,
+			{ text: keyword, type: 'user', time: currentTime },
+		]);
 		setIsTyping(true);
 
-		// إضافة رد البوت بعد فترة قصيرة
 		setTimeout(() => {
-			const botReply =
-				Question.find((item) => item.question === question)?.answer || '';
-			const botMsg = { text: botReply, type: 'bot', time: currentTime };
-			const audio = new Audio('/audio/open-chat.mp3');
-			audio.play();
+			if (found) {
+				setMessages((prev) => [
+					...prev,
+					{ text: found.answer, type: 'bot', time: currentTime },
+				]);
+			} else {
+				setMessages((prev) => [
+					...prev,
+					{
+						text: 'عذرًا، لم أتمكن من العثور على إجابة لهذا السؤال.',
+						type: 'bot',
+						time: currentTime,
+					},
+				]);
+			}
 			setIsTyping(false);
-			setMessages((prev) => [...prev, botMsg]);
-		}, 2000);
+		}, 1500);
 	};
 
-	const renderQuestionButtons = () => {
-		const [showQuestions, setShowQuestions] = useState(false);
-		return (
-			<div className='m-auto text-center w-full'>
-				<button
-					onClick={() => setShowQuestions(!showQuestions)}
-					className='mb-4 p-2 border-green-500 border-2 text-green-600 rounded-xl hover:bg-green-500 hover:text-white transition-all'>
-					{showQuestions ? 'إخفاء' : 'اسالني'}
-				</button>
-				<div className='m-auto '>
-					{showQuestions && (
-						<div className='flex  flex-col gap-2'>
-							{Question.map((item, index) => (
-								<button
-									key={index}
-									onClick={() => handleQuestionClick(item.question)}
-									aria-label='إعدادات'
-									className='border-2 border-green-500 p-2 w-10/12 md:w-3/4 m-auto hover:bg-green-50 rounded-lg hover:text-black transition-all duration-150 hover:border-green-500'>
-									{item.question}
-								</button>
-							))}
-						</div>
-					)}
-				</div>
-			</div>
-		);
+	const handleSendMessage = () => {
+		if (inputValue.trim()) {
+			handleSearch(inputValue.trim());
+			setInputValue('');
+		}
 	};
 
 	return (
@@ -205,17 +169,6 @@ const AImessage: React.FC = () => {
 								/>
 							</svg>
 						</div>
-					</div>
-
-					{/* Questions & Answers */}
-					<div className='m-auto text-center text-lg space-y-3 text-green-900 '>
-						{!selectedQuestion ? (
-							renderQuestionButtons()
-						) : (
-							<div className='mt-4 space-y-2 text-base'>
-								{renderQuestionButtons()}
-							</div>
-						)}
 					</div>
 
 					{/* User & Bot Messages */}
@@ -365,7 +318,7 @@ const AImessage: React.FC = () => {
 								onChange={(e) => setInputValue(e.target.value)}
 								onKeyDown={handleKeyDown}
 								className='flex-grow border-none p-3 rounded-2xl me-2 focus:outline-none text-green-600'
-								placeholder='Type a message...'
+								placeholder='.... لا تتردد في طرح اي سؤال ؟'
 							/>
 							<button
 								onClick={toggleEmojiPicker}
